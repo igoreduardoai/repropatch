@@ -1,0 +1,50 @@
+{
+  "mode": "BLIND review on recorded artifacts: independent verdict withheld from the auditor (no new repair, no Meta API call)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "vanx-funcfield-5d9",
+  "method": "W1",
+  "run_id": "0a6247e8d11b452288dcb5cdd943c339",
+  "harness_verdict": "VERIFIED",
+  "harness_verdict_unchanged": true,
+  "shown_to_auditor": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": "WITHHELD for this blind review. Judge the patch itself; do not assume it passed or failed."
+  },
+  "inputs": {
+    "patch_sha256": "403de31d5e805c0873c1d76b580fd6c1fcfd7e3f3adc0e7a340eb98d59a0e676",
+    "frozen_test_sha256": "f6801997c8af3fe7fb1cd47bd905d965134076fabd9351687e1697bf95ae53d8"
+  },
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-43a70b1a47b045fc883a70b0ad1feed5",
+  "opinion": {
+    "patch_scope": "Adds `typeof !== 'function'` guards in `reactive()`, `calc` derivation, `replaceInternal`, and `compact` in x/src/van-x.js so functions are treated as leaf values and not wrapped/merged as objects.",
+    "scope_assessment": "proportionate",
+    "overfitting_risk": "low",
+    "overfitting_reason": "Patch implements general type-based fix (functions are leaf values) rather than special-casing test strings 'Hi Ada!' or 'Good evening, Ms. Lovelace.'; it applies consistently across reactive wrapping, derivation, replace, and compact.",
+    "likely_regressions": [],
+    "recommendation": "accept",
+    "rationale": "Patch addresses root cause that `instanceof Object` is true for functions, causing non-callable proxy wrapping. Fix is consistent across 4 related sites and matches expected behavior that function-typed fields stay callable and reassignable. No test hardcoding and harness shows reproduction and public regressions both pass.",
+    "confidence": "high"
+  },
+  "usage": {
+    "prompt_tokens": 1340,
+    "completion_tokens": 849,
+    "cached_tokens": 256,
+    "reasoning_tokens": 642,
+    "estimated_cost_usd": 0.005002,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

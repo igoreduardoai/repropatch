@@ -9,7 +9,7 @@ internally consistent.
 Usage: python3 scripts/verify_evidence.py [--run RUN_ID_PREFIX] [--root REPO_DIR]
 
 Also re-checks the 2 Nov 2026 extension (docs/evidence/extension-2026-11-02/):
-3 more real VanJS bugs, real Meta runs, per-call spend log, artifact hashes.
+6 more real VanJS bugs (2 batches), real Meta runs, per-call spend log, artifact hashes.
 """
 import argparse, csv, hashlib, json, sys
 from pathlib import Path
@@ -118,7 +118,7 @@ def extension(ev, run=None):
             if k in e: print(f"  {k:20s}: {e[k].get('outcome') or ('PASS' if e[k].get('passed') else 'FAIL')} (exit {e[k]['exit_code']})")
         print(f"VERDICT: {r['status']}   model claimed fixed but a check failed: {r['false_success']}   reason: {r['reason'] or '-'}")
         print("RESULT:", "all recorded hashes match" if ok else "HASH MISMATCH"); return 0 if ok else 1
-    print(f"EXTENSION 2 Nov 2026 · {x['summary']['model']} · 3 more real VanJS bugs · W0+W1 each · artifacts re-hashed")
+    print(f"EXTENSION 2 Nov 2026 · {x['summary']['model']} · {x['summary']['cases_counted']} more real VanJS bugs · W0+W1 each · artifacts re-hashed")
     print(f"{'run':9s} {'case':18s} {'meth':4s} {'verdict':9s} {'calls':>5s} {'USD':>9s}  note")
     for r in x["runs"]:
         e = r.get("evaluation") or {}

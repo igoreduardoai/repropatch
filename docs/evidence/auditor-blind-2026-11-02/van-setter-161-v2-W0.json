@@ -1,0 +1,50 @@
+{
+  "mode": "BLIND review on recorded artifacts: independent verdict withheld from the auditor (no new repair, no Meta API call)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "van-setter-161-v2",
+  "method": "W0",
+  "run_id": "0e0fd6137d4049dc82d838c6f5c41d26",
+  "harness_verdict": "REJECTED",
+  "harness_verdict_unchanged": true,
+  "shown_to_auditor": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": "WITHHELD for this blind review. Judge the patch itself; do not assume it passed or failed."
+  },
+  "inputs": {
+    "patch_sha256": "9c4f1d1b2208a244043c566608bdf619393dda00449d20e5107552d5899c73e4",
+    "frozen_test_sha256": "5fe63e0b2bbb052e86e32da1d98f2f7d45cbaedb91de4e9c68865cc4713a517f"
+  },
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-556c1df09d38400d9bd4b74a4a2061b8",
+  "opinion": {
+    "patch_scope": "Adds element namespace (ns) to propSetterCache key in src/van.js to prevent HTML/SVG elements with same tag name and property (e.g., a/href) from sharing the cached setter.",
+    "scope_assessment": "minimal",
+    "overfitting_risk": "low",
+    "overfitting_reason": "Patch fixes the general root cause of cross-namespace setter cache collision causing Illegal invocation, rather than special-casing test selectors or href values like '#top'.",
+    "likely_regressions": [],
+    "recommendation": "accept",
+    "rationale": "Single-line cache-key change directly addresses the reported HTML vs SVG <a> href collision with no extra logic. Frozen reproduction and public regressions both PASS per harness, and change is narrow with no added behavior to break HTML links/inputs.",
+    "confidence": "high"
+  },
+  "usage": {
+    "prompt_tokens": 915,
+    "completion_tokens": 838,
+    "cached_tokens": 768,
+    "reasoning_tokens": 653,
+    "estimated_cost_usd": 0.003861,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

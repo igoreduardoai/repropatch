@@ -1,0 +1,50 @@
+{
+  "mode": "BLIND review on recorded artifacts: independent verdict withheld from the auditor (no new repair, no Meta API call)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "vanx-raw-356",
+  "method": "W1",
+  "run_id": "556a5b2191974847b344fdd2024c8e31",
+  "harness_verdict": "VERIFIED",
+  "harness_verdict_unchanged": true,
+  "shown_to_auditor": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": "WITHHELD for this blind review. Judge the patch itself; do not assume it passed or failed."
+  },
+  "inputs": {
+    "patch_sha256": "9bd72eedecbc1b2cf43f93a2298c865ea3fbdd038d3e857b79bdf3f2a8ff9df0",
+    "frozen_test_sha256": "fe101594d6d56498d3a02e42130cf7a9013950034cef251931ef7ea0e20cad25"
+  },
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-58477c2ec724415ea1663799809f631d",
+  "opinion": {
+    "patch_scope": "Rewrites vanX.raw's Proxy handler to unwrap only own state fields with rawVal and delegate all other property accesses (array length/methods, prototype methods, symbols) via refGet with the proxy as receiver, plus adds optional chaining for nullish inputs.",
+    "scope_assessment": "proportionate",
+    "overfitting_risk": "low",
+    "overfitting_reason": "Implements generic fallback to prototype/Reflect behavior for non-state properties instead of hardcoding test values (Ada Lovelace, 90%, etc.); correctly handles arrays, class instances, and subscription-free reads.",
+    "likely_regressions": [],
+    "recommendation": "accept",
+    "rationale": "Frozen reproduction and public regressions both pass per harness, and patch directly addresses the reported failure mode for reactive arrays and class instances. Logic distinguishes state fields from inherited/array properties without special-casing test data. No broader scope creep detected.",
+    "confidence": "high"
+  },
+  "usage": {
+    "prompt_tokens": 1183,
+    "completion_tokens": 1599,
+    "cached_tokens": 256,
+    "reasoning_tokens": 1394,
+    "estimated_cost_usd": 0.007993,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

@@ -1,0 +1,52 @@
+{
+  "mode": "BLIND review on recorded artifacts: independent verdict withheld from the auditor (no new repair, no Meta API call)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "vanx-replace-c93",
+  "method": "W1",
+  "run_id": "2616eee18c28409e86ff6b9091777ce3",
+  "harness_verdict": "REJECTED",
+  "harness_verdict_unchanged": true,
+  "shown_to_auditor": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": "WITHHELD for this blind review. Judge the patch itself; do not assume it passed or failed."
+  },
+  "inputs": {
+    "patch_sha256": "d83a9428d3232d7e3ffdf22c050030bea49fb2f5d53af89abe8390e8059d068d",
+    "frozen_test_sha256": "0984e91518d77b9815407e658ad958777a1cd876adfed22d1638328705e413ee"
+  },
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-dc9660f6a35a4d438cc5775f5e3a6cb3",
+  "opinion": {
+    "patch_scope": "Modifies replaceInternal in x/src/van-x.js to snapshot original values (origVals) and skip recursive merging when the replacement value is already present in the target, assigning by reference instead to correctly handle permutations/reordering.",
+    "scope_assessment": "minimal",
+    "overfitting_risk": "low",
+    "overfitting_reason": "Uses generic reference-identity check (origVals.includes(v)) to detect moved/reused objects for any array length or content, not hardcoded to the 'Add docs' etc. test data.",
+    "likely_regressions": [
+      "If a reused object is intentionally reused with mutated nested properties, direct move will skip the intended deep merge/update of that object's fields"
+    ],
+    "recommendation": "accept",
+    "rationale": "Frozen reproduction passes and public regressions pass. Patch fixes the general root cause of in-place merge overwriting not-yet-processed items during vanX.replace permutation, aligning with expected behavior that reused objects keep identity and data.",
+    "confidence": "high"
+  },
+  "usage": {
+    "prompt_tokens": 966,
+    "completion_tokens": 1781,
+    "cached_tokens": 256,
+    "reasoning_tokens": 1565,
+    "estimated_cost_usd": 0.008496,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

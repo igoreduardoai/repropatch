@@ -1,0 +1,50 @@
+{
+  "mode": "BLIND review on recorded artifacts: independent verdict withheld from the auditor (no new repair, no Meta API call)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "van-389",
+  "method": "W0",
+  "run_id": "909bd13d4455456ea81635153cd91dab",
+  "harness_verdict": "VERIFIED",
+  "harness_verdict_unchanged": true,
+  "shown_to_auditor": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": "WITHHELD for this blind review. Judge the patch itself; do not assume it passed or failed."
+  },
+  "inputs": {
+    "patch_sha256": "6c50ab57df3c613ae035f90b166dc3f503c503b944506c04f598a2fad14820c0",
+    "frozen_test_sha256": "d2c5ebae7121960194b15b57d6751518d23844386c3311d8800a9125036dc4c2"
+  },
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-d3871cb6b14249eeb85c4fac5686a03c",
+  "opinion": {
+    "patch_scope": "Adds reactive van.state handling in createElement.js via van.derive and rewrites setAttribute in hyper.js to correctly sync boolean, null, number and style attributes with DOM properties and attributes.",
+    "scope_assessment": "proportionate",
+    "overfitting_risk": "low",
+    "overfitting_reason": "Patch implements general boolean attribute/property sync and generic State-object derivation (val/rawVal check) rather than hardcoding #target, disabled-only, or test values.",
+    "likely_regressions": [],
+    "recommendation": "accept",
+    "rationale": "Harness shows frozen reproduction passes and public regressions pass. Patch fixes the core cause (boolean disabled not synced and State objects not observed) with general attribute logic, not test-specific branching. No concrete regression is evident from the diff.",
+    "confidence": "medium"
+  },
+  "usage": {
+    "prompt_tokens": 1358,
+    "completion_tokens": 3214,
+    "cached_tokens": 0,
+    "reasoning_tokens": 3033,
+    "estimated_cost_usd": 0.015357,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

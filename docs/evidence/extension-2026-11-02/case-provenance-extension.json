@@ -72,6 +72,78 @@
     "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
   },
   {
+    "case_id": "vanx-funcfield-5d9",
+    "title": "A function stored in a VanX reactive object cannot be called",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "7f4f61197645050fdc74af29037bcd98678326c8",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "The greeting card must call the function stored in the reactive field and show \"Hi Ada!\"; after \"Use formal greeting\" replaces the function, it must show \"Good evening, Ms. Lovelace.\" Function-typed fields must stay callable.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "5d97cffc31b912700ef1ce7dfe98fa42c68b9e9b",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "a23c9796a1e21ac0a4530d240c4f203bf921748002859b4dcdd83f9b80b1e681",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "77792534f172759ab602b8b9d3d247fe515cce124fec3c38e7d497dd53c4f187",
+    "snapshot_tree_sha256": "c4c9100f98e49e8f8a40c68d99aa417c29ca9daba93d2f925613d4a310544bd5",
+    "reference_tree_sha256": "81ab1f8ecf749fdae26113e7a0e7872e4509187e56f3407c0a2c00c7e2e764b2",
+    "evaluator_tree_sha256": "97e1d7ca16b8ced033de9aeaefce31a6391a67a602182e5b11b8bc2d86b3e0bc",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
+    "case_id": "vanx-raw-356",
+    "title": "vanX.raw breaks on reactive arrays and class instances",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "9f56fab5a5282e1f114210ec3576521c0ac43b52",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "The profile snapshot reads values through vanX.raw and must show \"Name: Ada Lovelace\", \"Scores recorded: 3\" and \"Scores: 90%, 85%, 77%\". vanX.raw must work for reactive arrays (length, map) and class instances (methods), while values read through vanX.raw do not subscribe to later changes.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "17d5ce5eae691f9839b68454154d03a293a51368",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "813db5dfb0e67520674d209ef83cba644b381491e67a4cd6ee7223904ff4ad5b",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "a6f7efa212170e9fd8d60f89f161b513ae712ba95d31689f4e012eab1aa2df6d",
+    "snapshot_tree_sha256": "fcef1497f48c0a0ce65674dff8a22eb0918b410a176fae40d20b6ede8979795e",
+    "reference_tree_sha256": "9d945eef7a8b42b6f12875acb1f9bf9afc45f35ca1af37cf1863670bf9078db5",
+    "evaluator_tree_sha256": "1dc64c92ea52a411f1d0ebcd9065776d5729eb2290355fc7c62c91b7ac86ae74",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
+    "case_id": "vanx-replace-c93",
+    "title": "Sorting a VanX task list duplicates one task and loses another",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "6396bb1e4ff25488374198f8adb823abbac2ff1d",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "Clicking \"Sort A to Z\" (vanX.replace with the sorted array) must show each task exactly once in alphabetical order: Add docs, Fix login bug, Write release notes. Replacements that reuse existing objects must keep each object's identity and data.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "c93a1531ab6b7bcb17492881966799b963c8fe22",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "c19d2b0be8be2ac558b127945804bb492fa90266ddc322a2e4d0ee25200c366a",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "ae4d88ee7bc9cbf6b91b7880864c2809a50e448bee7b00f13e4a2796a3ba0926",
+    "snapshot_tree_sha256": "3905d084be7058802422d1866fe3156e76ed5c5640aa74a77875d99d3f45ac59",
+    "reference_tree_sha256": "e0f5ef4378d7ca7728b7eb1ce6ded560b88c463e6200da98ce040c7f3113622b",
+    "evaluator_tree_sha256": "d01f89d30c5ab3b385e51a31bbf8805e352c269da397cbd86a679994fca977ae",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
     "case_id": "vanx-truncate-915",
     "title": "VanX list keeps stale rows after the array is shortened",
     "repository_url": "https://github.com/vanjs-org/van",

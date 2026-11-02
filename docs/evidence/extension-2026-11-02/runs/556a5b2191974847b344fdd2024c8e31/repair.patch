@@ -1,0 +1,19 @@
+--- a/x/src/van-x.js
++++ b/x/src/van-x.js
+@@ -62,8 +62,14 @@
+ 
+ let stateFields = obj => obj[statesSym]
+ 
+-let raw = obj => obj[statesSym] ?
+-  new Proxy(obj[statesSym], {get: (obj, name) => raw(obj[name].rawVal)}) : obj
++let raw = obj => obj?.[statesSym] ?
++  new Proxy(obj[statesSym], {
++    get: (states, name, proxy) =>
++      name === statesSym ? states :
++      hasOwn(states, name) && states[name] instanceof Object && hasOwn(states[name], "rawVal") ?
++        raw(states[name].rawVal) :
++        refGet(states, name, proxy),
++  }) : obj
+ 
+ let filterBindings = states =>
+   states[bindingsSym] = states[bindingsSym].filter(b => b._containerDom.isConnected)

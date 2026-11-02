@@ -1,0 +1,11 @@
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    'abc',
+    'def',
++   'def'
+-   'ghi'
+  ]
+

@@ -1,0 +1,12 @@
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
++   'C,C',
+-   'C,B',
+    true,
++   'C'
+-   'B'
+  ]
+

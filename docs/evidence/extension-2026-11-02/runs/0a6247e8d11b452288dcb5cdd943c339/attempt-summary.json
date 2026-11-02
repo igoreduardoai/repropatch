@@ -1,0 +1,48 @@
+{
+  "cost_usd": 0.160611,
+  "duration_ms": 73551,
+  "source": "live",
+  "mode": "live",
+  "model": "muse-wonder-1.0",
+  "method": "W1",
+  "case_id": "vanx-funcfield-5d9",
+  "verified": true,
+  "operator_interventions": 0,
+  "started_at": "2026-11-02T22:59:17.339806+00:00",
+  "finished_at": "2026-11-02T23:00:30.890993+00:00",
+  "committed_usd": 0.160611,
+  "settled_usd": 0.160611,
+  "model_calls": 17,
+  "unknown_calls": 0,
+  "reproduced": true,
+  "agent_claim": "Fixed VanX reactive() wrapping functions into non-callable proxies: functions are now returned as-is from reactive(), and treated as leaf values in calc derivation, replace, and compact. Reproduction test (greeting card Hi Ada! -> Good evening, Ms. Lovelace., plus direct reactive function assignment) passes, and public regression test passes.",
+  "candidate_sha256": "2fc297730e698cd9faa4dbb6e4d61c3b7d840bb7bccb43fc5459fed7edec9211",
+  "patch_sha256": "403de31d5e805c0873c1d76b580fd6c1fcfd7e3f3adc0e7a340eb98d59a0e676",
+  "frozen_test_sha256": "f6801997c8af3fe7fb1cd47bd905d965134076fabd9351687e1697bf95ae53d8",
+  "workspace_test_modified": false,
+  "patch": "--- a/x/src/van-x.js\n+++ b/x/src/van-x.js\n@@ -16,7 +16,7 @@\n     let s = state()\n     derive(() => {\n       let newV = v()\n-      s.rawVal instanceof Object && newV instanceof Object ?\n+      s.rawVal instanceof Object && typeof s.rawVal !== \"function\" && newV instanceof Object && typeof newV !== \"function\" ?\n         replace(s.rawVal, newV) : s.val = reactive(newV)\n     })\n     return s\n@@ -31,7 +31,7 @@\n   return states\n }\n \n-let reactive = srcObj => !(srcObj instanceof Object) || srcObj[statesSym] ? srcObj :\n+let reactive = srcObj => !(srcObj instanceof Object) || typeof srcObj === \"function\" || srcObj[statesSym] ? srcObj :\n   new Proxy(buildStates(srcObj), {\n     get: (states, name, proxy) =>\n       name === statesSym ? states :\n@@ -100,7 +100,7 @@\n let replaceInternal = (obj, replacement) => {\n   for (let [k, v] of entries(replacement)) {\n     let existingV = obj[k]\n-    existingV instanceof Object && v instanceof Object ? replaceInternal(existingV, v) : obj[k] = v\n+    existingV instanceof Object && typeof existingV !== \"function\" && v instanceof Object && typeof v !== \"function\" ? replaceInternal(existingV, v) : obj[k] = v\n   }\n   for (let k in obj) hasOwn(replacement, k) || delete obj[k]\n   let newKeys = keys(replacement), isArray = Array.isArray(obj)\n@@ -134,6 +134,6 @@\n }\n \n let compact = obj => Array.isArray(obj) ? obj.filter(_ => 1).map(compact) :\n-  obj instanceof Object ? fromEntries(entries(obj).map(([k, v]) => [k, compact(v)])) : obj\n+  obj instanceof Object && typeof obj !== \"function\" ? fromEntries(entries(obj).map(([k, v]) => [k, compact(v)])) : obj\n \n export {calc, reactive, stateFields, raw, list, replace, compact}\n",
+  "files_changed": [
+    "x/src/van-x.js"
+  ],
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "all_passed": true
+  },
+  "regressions": 0,
+  "limitation": "VERIFIED means the executed frozen/public/independent checks passed; not a proof of correctness.",
+  "false_success": false
+}

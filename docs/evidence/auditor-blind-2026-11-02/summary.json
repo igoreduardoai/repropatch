@@ -1,0 +1,146 @@
+{
+  "summary": {
+    "date": "2026-11-02",
+    "auditor": "baseten:muse-spark-open-1026",
+    "patches_audited": 10,
+    "errors": 0,
+    "harness_VERIFIED": {
+      "auditor_accept": 6,
+      "auditor_review": 0
+    },
+    "harness_REJECTED_after_model_said_fixed": {
+      "auditor_accept": 4,
+      "auditor_review": 0
+    },
+    "ledger": {
+      "cap_usd": 3.0,
+      "committed_usd": 0.083631,
+      "settled_usd": 0.083631,
+      "halted": null,
+      "scope": "This ledger only; it does not include other API clients or account charges."
+    },
+    "limits": "Tiny sample from one library; the auditor never sees the hidden checks; advisory only, never changes a verdict."
+  },
+  "rows": [
+    {
+      "run_id": "909bd13d4455456ea81635153cd91dab",
+      "case_id": "van-389",
+      "method": "W0",
+      "harness_verdict": "VERIFIED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "medium",
+      "prompt_tokens": 1358,
+      "completion_tokens": 3214,
+      "estimated_cost_usd": 0.015357
+    },
+    {
+      "run_id": "0870f6fe694a464095792e0129deed33",
+      "case_id": "vanx-compact-063",
+      "method": "W1",
+      "harness_verdict": "VERIFIED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 994,
+      "completion_tokens": 1823,
+      "estimated_cost_usd": 0.008709
+    },
+    {
+      "run_id": "31644545396a49e6ab4450feb89617dd",
+      "case_id": "vanx-compact-063",
+      "method": "W0",
+      "harness_verdict": "VERIFIED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 944,
+      "completion_tokens": 1824,
+      "estimated_cost_usd": 0.008369
+    },
+    {
+      "run_id": "152b2437226347baa47f5f1d4f939735",
+      "case_id": "van-setter-161-v2",
+      "method": "W1",
+      "harness_verdict": "REJECTED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 901,
+      "completion_tokens": 1227,
+      "estimated_cost_usd": 0.00606
+    },
+    {
+      "run_id": "0e0fd6137d4049dc82d838c6f5c41d26",
+      "case_id": "van-setter-161-v2",
+      "method": "W0",
+      "harness_verdict": "REJECTED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 915,
+      "completion_tokens": 838,
+      "estimated_cost_usd": 0.003861
+    },
+    {
+      "run_id": "2616eee18c28409e86ff6b9091777ce3",
+      "case_id": "vanx-replace-c93",
+      "method": "W1",
+      "harness_verdict": "REJECTED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 966,
+      "completion_tokens": 1781,
+      "estimated_cost_usd": 0.008496
+    },
+    {
+      "run_id": "0a6247e8d11b452288dcb5cdd943c339",
+      "case_id": "vanx-funcfield-5d9",
+      "method": "W1",
+      "harness_verdict": "VERIFIED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 1340,
+      "completion_tokens": 849,
+      "estimated_cost_usd": 0.005002
+    },
+    {
+      "run_id": "686c1f47a77e48aaa220fe98e5dfbb27",
+      "case_id": "vanx-funcfield-5d9",
+      "method": "W0",
+      "harness_verdict": "REJECTED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "medium",
+      "prompt_tokens": 919,
+      "completion_tokens": 2529,
+      "estimated_cost_usd": 0.011475
+    },
+    {
+      "run_id": "556a5b2191974847b344fdd2024c8e31",
+      "case_id": "vanx-raw-356",
+      "method": "W1",
+      "harness_verdict": "VERIFIED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 1183,
+      "completion_tokens": 1599,
+      "estimated_cost_usd": 0.007993
+    },
+    {
+      "run_id": "96cf273cb9fe4600a4ce4e3347bc06d3",
+      "case_id": "vanx-raw-356",
+      "method": "W0",
+      "harness_verdict": "VERIFIED",
+      "auditor_recommendation": "accept",
+      "overfitting_risk": "low",
+      "confidence": "high",
+      "prompt_tokens": 1276,
+      "completion_tokens": 1679,
+      "estimated_cost_usd": 0.008309
+    }
+  ]
+}

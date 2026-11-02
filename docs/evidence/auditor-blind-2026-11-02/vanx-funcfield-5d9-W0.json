@@ -1,0 +1,52 @@
+{
+  "mode": "BLIND review on recorded artifacts: independent verdict withheld from the auditor (no new repair, no Meta API call)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "vanx-funcfield-5d9",
+  "method": "W0",
+  "run_id": "686c1f47a77e48aaa220fe98e5dfbb27",
+  "harness_verdict": "REJECTED",
+  "harness_verdict_unchanged": true,
+  "shown_to_auditor": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": "WITHHELD for this blind review. Judge the patch itself; do not assume it passed or failed."
+  },
+  "inputs": {
+    "patch_sha256": "3bd86beeabf89341b27344034928c0833e56ad810960231e41d73a6588dddfec",
+    "frozen_test_sha256": "f5c7ecbe38fdbd35c3dadbf09f148e8dcf0c8a7fb58d1f4e9df90662862eaf4c"
+  },
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-5cd071f8fe2841fa8e6d8e9a859fa15b",
+  "opinion": {
+    "patch_scope": "Adds `typeof srcObj === \"function\"` guard to `reactive()` in x/src/van-x.js so function values are returned unchanged instead of being wrapped in a Proxy built from empty states, which restores callability of function-typed fields stored in a reactive object.",
+    "scope_assessment": "minimal",
+    "overfitting_risk": "low",
+    "overfitting_reason": "Patch fixes the general root cause (non-callable Proxy for functions) rather than hard-coding the reproduction strings \"Hi Ada!\" / \"Good evening, Ms. Lovelace.\"; it applies to any function stored or reassigned via reactive state.",
+    "likely_regressions": [
+      "Reactivity for properties added directly to a function object itself (e.g., fn.extra = reactiveValue) will no longer be tracked, as functions are now excluded from proxying"
+    ],
+    "recommendation": "accept",
+    "rationale": "Frozen reproduction passes and public regressions pass. The one-line guard addresses why function fields became non-callable and matches expected behavior that initial and replaced functions remain callable and reactive via container state. No test-specific hardcoding.",
+    "confidence": "medium"
+  },
+  "usage": {
+    "prompt_tokens": 919,
+    "completion_tokens": 2529,
+    "cached_tokens": 384,
+    "reasoning_tokens": 2278,
+    "estimated_cost_usd": 0.011475,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

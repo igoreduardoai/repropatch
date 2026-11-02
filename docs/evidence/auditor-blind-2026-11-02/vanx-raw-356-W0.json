@@ -1,0 +1,50 @@
+{
+  "mode": "BLIND review on recorded artifacts: independent verdict withheld from the auditor (no new repair, no Meta API call)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "vanx-raw-356",
+  "method": "W0",
+  "run_id": "96cf273cb9fe4600a4ce4e3347bc06d3",
+  "harness_verdict": "VERIFIED",
+  "harness_verdict_unchanged": true,
+  "shown_to_auditor": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": "WITHHELD for this blind review. Judge the patch itself; do not assume it passed or failed."
+  },
+  "inputs": {
+    "patch_sha256": "8c97ad32ef124b41cccd22f0ec27bb8476841e927cc94b79d2c87d79cce906e8",
+    "frozen_test_sha256": "b0708e2f7d9f0104da0ad19a64cdd89cead3029c36e09cabbd83cb33a09dae86"
+  },
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-8b6b1e0636c44b6f9475b9495a21fa28",
+  "opinion": {
+    "patch_scope": "Rewrites vanX.raw from naive rawVal proxy to selective unwrapping: checks own state entries for rawVal without subscription, falls back to refGet/Reflect for array length/methods, class prototype methods/symbols, and adds string-only ownKeys/getOwnPropertyDescriptor support.",
+    "scope_assessment": "proportionate",
+    "overfitting_risk": "low",
+    "overfitting_reason": "Patch implements generic fallback logic (hasOwn+rawVal check vs refGet with raw proxy as receiver) rather than hardcoding test values like 'Ada Lovelace' or 4/['90%','85%','77%','60%']; it fixes general array length/map and class method access.",
+    "likely_regressions": [],
+    "recommendation": "accept",
+    "rationale": "Patch directly addresses root cause \u2014 vanX.raw subscribing and failing on non-state properties \u2014 and restores expected snapshot behavior with non-subscribing reads. Scope matches bug report and adds necessary enumeration traps. Frozen reproduction and public regressions both PASS with no overfitting.",
+    "confidence": "high"
+  },
+  "usage": {
+    "prompt_tokens": 1276,
+    "completion_tokens": 1679,
+    "cached_tokens": 384,
+    "reasoning_tokens": 1442,
+    "estimated_cost_usd": 0.008309,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

@@ -1,4 +1,4 @@
-# Validation — 27 October 2026
+# Validation — 27 October and 2 November 2026
 
 The validation of the starter build kit (created during the hackathon, first
 commit 27 Oct 2026) is preserved in docs/STARTER_VALIDATION.md.
@@ -78,9 +78,46 @@ from recorded usage and matching the ledger exactly. Hard cap for this session:
 USD 8 batch / USD 3 per run, enforced by the ledger. Not an invoice; the account
 balance could not be read through the API.
 
-Combined with the pilot: 3 of 7 real bugs verified fixed in 14 counted runs; 2 model
-"fixed" claims failed an independent check and were stored as REJECTED; no VERIFIED
-verdict has any failed check. Re-check offline: `python3 scripts/verify_evidence.py`.
+### Extension batches 2 and 3 — 2 November 2026, evening (same box, same caps)
+
+Three more real VanJS bugs, built and accepted the same way (signed case gate; bug videos
+recorded by us on the pre-fix code; independent checks adapted from the upstream tests).
+
+| Case (upstream fix) | W0 | W1 |
+|---|---|---|
+| vanx-replace-c93 (c93a153, committed 31 Oct 2026) | REJECTED: no candidate (ended after a truncated turn) | REJECTED: model said "Fixed"; frozen repro + public PASS; independent FAIL |
+| vanx-funcfield-5d9 (5d97cff) | REJECTED: model said "Fixed"; frozen repro + public PASS; independent FAIL | VERIFIED |
+| vanx-raw-356 (17d5ce5) | VERIFIED | VERIFIED |
+
+What the independent checks caught: the `vanx-replace-c93` W1 patch sorts correctly but still
+overwrites a reused object when a new item is inserted before it (expected `C,B`, got `C,C`);
+the `vanx-funcfield-5d9` W0 patch handles direct assignment of a function field but not
+`vanX.replace` (expected `ghi`, got `def`). Metered Meta usage for these 6 runs: USD 1.106210,
+100 calls (in the same per-call log). Ledger total for 2 Nov: USD 2.473885, 243 calls,
+14 runs (12 counted), under the USD 8 batch cap.
+
+### Combined (27 Oct pilot + 2 Nov extension, counted runs only)
+
+- **5 of 10 real bugs verified fixed** (VanJS 389, 401, vanx-compact-063, vanx-funcfield-5d9,
+  vanx-raw-356) in **20 counted real Meta runs**.
+- **4 times the model said "Fixed" with an incomplete patch**; all 4 failed an independent
+  check and were stored as REJECTED. **No VERIFIED verdict has any failed check.**
+- 7 runs ended without a candidate (stored as REJECTED, never as fixes).
+- W1 verified 5 bugs and W0 verified 4. That is one bug on ten cases: not evidence of superiority.
+- Metered Meta usage for counted runs: USD 5.459224 (pilot 3.332222 + extension 2.127002).
+- Re-check offline: `python3 scripts/verify_evidence.py`.
+
+### Blind open-weight review (2 Nov 2026)
+
+Muse Spark Open (Meta open weights, via Baseten) reviewed the 10 exported final patches
+**without** the independent verdict. It recommended *accept* for all 10, including the 4 that
+the executed checks rejected. Details: `docs/evidence/auditor-blind-2026-11-02/`.
+10 calls, about USD 0.08 at list price (estimate).
+
+### Test suite, 2 November 2026 (Linux build box, Docker 27.5.1)
+
+Clean checkout of the public repository plus the 2 Nov scripts: **121 passed**, including the
+8 real-Docker sandbox tests (run with sudo for Docker socket access on this box).
 
 ## Hosted CI pending
 

@@ -1,0 +1,48 @@
+{
+  "cost_usd": 0.23985,
+  "duration_ms": 133988,
+  "source": "live",
+  "mode": "live",
+  "model": "muse-wonder-1.0",
+  "method": "W0",
+  "case_id": "vanx-funcfield-5d9",
+  "verified": false,
+  "operator_interventions": 0,
+  "started_at": "2026-11-02T23:00:31.717333+00:00",
+  "finished_at": "2026-11-02T23:02:45.705827+00:00",
+  "committed_usd": 0.23985,
+  "settled_usd": 0.23985,
+  "model_calls": 25,
+  "unknown_calls": 0,
+  "reproduced": true,
+  "agent_claim": "Fixed VanX reactive() wrapping functions in a Proxy of their (empty) own properties, which made function fields non-callable. reactive() now returns functions unchanged (`typeof srcObj === \"function\"`), so initial and reassigned function fields remain callable while still being stored in Van states for reactivity. Reproduction test passes (Hi Ada! -> Good evening, Ms. Lovelace. after click) and public regressions pass.",
+  "candidate_sha256": "b7acdb3140c17b4f21450b848ee72b25dadea53b6d253a0698cb626868b082e4",
+  "patch_sha256": "3bd86beeabf89341b27344034928c0833e56ad810960231e41d73a6588dddfec",
+  "frozen_test_sha256": "f5c7ecbe38fdbd35c3dadbf09f148e8dcf0c8a7fb58d1f4e9df90662862eaf4c",
+  "workspace_test_modified": false,
+  "patch": "--- a/x/src/van-x.js\n+++ b/x/src/van-x.js\n@@ -31,7 +31,7 @@\n   return states\n }\n \n-let reactive = srcObj => !(srcObj instanceof Object) || srcObj[statesSym] ? srcObj :\n+let reactive = srcObj => !(srcObj instanceof Object) || typeof srcObj === \"function\" || srcObj[statesSym] ? srcObj :\n   new Proxy(buildStates(srcObj), {\n     get: (states, name, proxy) =>\n       name === statesSym ? states :\n",
+  "files_changed": [
+    "x/src/van-x.js"
+  ],
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": false,
+      "exit_code": 1,
+      "timed_out": false
+    },
+    "all_passed": false
+  },
+  "regressions": 0,
+  "limitation": "VERIFIED means the executed frozen/public/independent checks passed; not a proof of correctness.",
+  "false_success": true
+}

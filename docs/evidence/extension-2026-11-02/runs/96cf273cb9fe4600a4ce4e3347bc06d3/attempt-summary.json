@@ -1,0 +1,48 @@
+{
+  "cost_usd": 0.173077,
+  "duration_ms": 86835,
+  "source": "live",
+  "mode": "live",
+  "model": "muse-wonder-1.0",
+  "method": "W0",
+  "case_id": "vanx-raw-356",
+  "verified": true,
+  "operator_interventions": 0,
+  "started_at": "2026-11-02T23:07:44.206672+00:00",
+  "finished_at": "2026-11-02T23:09:11.041507+00:00",
+  "committed_usd": 0.173077,
+  "settled_usd": 0.173077,
+  "model_calls": 17,
+  "unknown_calls": 0,
+  "reproduced": true,
+  "agent_claim": "Fixed vanX.raw to unwrap only own state-backed fields via rawVal (no subscription), falling back to Reflect.get with raw proxy as receiver for array length/methods, class prototype methods, and symbols; added string-only ownKeys/getOwnPropertyDescriptor handling. Reproduction and public regressions pass in sandbox.",
+  "candidate_sha256": "03ccfe3a34eea15f9473cb921a310d45f4bd0100cd4b3aa2d55e7792e04b3d5f",
+  "patch_sha256": "8c97ad32ef124b41cccd22f0ec27bb8476841e927cc94b79d2c87d79cce906e8",
+  "frozen_test_sha256": "b0708e2f7d9f0104da0ad19a64cdd89cead3029c36e09cabbd83cb33a09dae86",
+  "workspace_test_modified": false,
+  "patch": "--- a/x/src/van-x.js\n+++ b/x/src/van-x.js\n@@ -62,8 +62,20 @@\n \n let stateFields = obj => obj[statesSym]\n \n-let raw = obj => obj[statesSym] ?\n-  new Proxy(obj[statesSym], {get: (obj, name) => raw(obj[name].rawVal)}) : obj\n+let raw = obj => obj?.[statesSym] ?\n+  new Proxy(obj[statesSym], {\n+    get: (states, name, proxy) => {\n+      let v = hasOwn(states, name) ? states[name] : _undefined\n+      return v instanceof Object && \"rawVal\" in v ? raw(v.rawVal) : refGet(states, name, proxy)\n+    },\n+    ownKeys: states => refOwnKeys(states).filter(k => typeof k === \"string\"),\n+    getOwnPropertyDescriptor: (states, name) => {\n+      let v = hasOwn(states, name) ? states[name] : _undefined\n+      return v instanceof Object && \"rawVal\" in v ?\n+        {value: raw(v.rawVal), writable: true, enumerable: true, configurable: true} :\n+        Reflect.getOwnPropertyDescriptor(states, name)\n+    },\n+  }) : obj\n \n let filterBindings = states =>\n   states[bindingsSym] = states[bindingsSym].filter(b => b._containerDom.isConnected)\n",
+  "files_changed": [
+    "x/src/van-x.js"
+  ],
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "all_passed": true
+  },
+  "regressions": 0,
+  "limitation": "VERIFIED means the executed frozen/public/independent checks passed; not a proof of correctness.",
+  "false_success": false
+}

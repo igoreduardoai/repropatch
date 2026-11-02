@@ -4,6 +4,9 @@ const steps={
  'vanx-truncate-915':async p=>{await p.waitForTimeout(1500);await p.click('#keep2');await p.waitForTimeout(2500);await p.click('#clear');await p.waitForTimeout(2500);},
  'van-setter-161':async p=>{await p.waitForTimeout(1500);await p.click('#render-icon');await p.waitForTimeout(3000);},
  'vanx-compact-063':async p=>{await p.waitForTimeout(1500);await p.locator('#points li').nth(1).locator('button').click();await p.waitForTimeout(1500);await p.click('#export');await p.waitForTimeout(3000);},
+ 'vanx-replace-c93':async p=>{await p.waitForTimeout(2000);await p.click('#sort');await p.waitForTimeout(3500);},
+ 'vanx-funcfield-5d9':async p=>{await p.waitForTimeout(2500);await p.click('#formal');await p.waitForTimeout(3000);},
+ 'vanx-raw-356':async p=>{await p.waitForTimeout(4500);},
 };
 (async()=>{
  const server=require('child_process').spawn('node',['/opt/repropatch/serve.cjs'],{cwd:'/workspace/repo',stdio:'inherit'});

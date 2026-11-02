@@ -1,0 +1,37 @@
+--- a/x/src/van-x.js
++++ b/x/src/van-x.js
+@@ -16,7 +16,7 @@
+     let s = state()
+     derive(() => {
+       let newV = v()
+-      s.rawVal instanceof Object && newV instanceof Object ?
++      s.rawVal instanceof Object && typeof s.rawVal !== "function" && newV instanceof Object && typeof newV !== "function" ?
+         replace(s.rawVal, newV) : s.val = reactive(newV)
+     })
+     return s
+@@ -31,7 +31,7 @@
+   return states
+ }
+ 
+-let reactive = srcObj => !(srcObj instanceof Object) || srcObj[statesSym] ? srcObj :
++let reactive = srcObj => !(srcObj instanceof Object) || typeof srcObj === "function" || srcObj[statesSym] ? srcObj :
+   new Proxy(buildStates(srcObj), {
+     get: (states, name, proxy) =>
+       name === statesSym ? states :
+@@ -100,7 +100,7 @@
+ let replaceInternal = (obj, replacement) => {
+   for (let [k, v] of entries(replacement)) {
+     let existingV = obj[k]
+-    existingV instanceof Object && v instanceof Object ? replaceInternal(existingV, v) : obj[k] = v
++    existingV instanceof Object && typeof existingV !== "function" && v instanceof Object && typeof v !== "function" ? replaceInternal(existingV, v) : obj[k] = v
+   }
+   for (let k in obj) hasOwn(replacement, k) || delete obj[k]
+   let newKeys = keys(replacement), isArray = Array.isArray(obj)
+@@ -134,6 +134,6 @@
+ }
+ 
+ let compact = obj => Array.isArray(obj) ? obj.filter(_ => 1).map(compact) :
+-  obj instanceof Object ? fromEntries(entries(obj).map(([k, v]) => [k, compact(v)])) : obj
++  obj instanceof Object && typeof obj !== "function" ? fromEntries(entries(obj).map(([k, v]) => [k, compact(v)])) : obj
+ 
+ export {calc, reactive, stateFields, raw, list, replace, compact}

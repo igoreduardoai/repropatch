@@ -1,0 +1,16 @@
+--- a/x/src/van-x.js
++++ b/x/src/van-x.js
+@@ -109,9 +109,12 @@
+ }
+ 
+ let replaceInternal = (obj, replacement) => {
++  // Values already present must be moved, not merged in place, otherwise
++  // sorting a list reusing its items overwrites items not yet processed.
++  let origVals = entries(obj).map(([, v]) => v)
+   for (let [k, v] of entries(replacement)) {
+     let existingV = obj[k]
+-    isObject(existingV) && isObject(v) ? replaceInternal(existingV, v) : obj[k] = v
++    isObject(existingV) && isObject(v) && !origVals.includes(v) ? replaceInternal(existingV, v) : obj[k] = v
+   }
+   for (let k in obj) hasOwn(replacement, k) || delete obj[k]
+   let newKeys = keys(replacement), isArray = Array.isArray(obj)
