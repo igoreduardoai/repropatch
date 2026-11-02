@@ -1,0 +1,33 @@
+{
+  "reproduced": true,
+  "agent_claim": "compact now preserves each object's prototype (via Object.create(getPrototypeOf(obj))) when rebuilding it, so Point instances retain their toJSON during JSON.stringify after holes are removed; arrays/plain objects behavior verified by reproduction and public regression tests.",
+  "candidate_sha256": "c1ca598512d3c28eadd824ef9ff1a9f73da29b13f412a4804144b6d97cc42060",
+  "patch_sha256": "543ba76271b071f94eb18604b597f567a9a4f9d50c755d97c954740a8d1c6044",
+  "frozen_test_sha256": "99281fe2e0a943ba3d97b9b20dae88b08998ea0feca2e745fcfa88c82863d0cc",
+  "workspace_test_modified": false,
+  "patch": "--- a/x/src/van-x.js\n+++ b/x/src/van-x.js\n@@ -145,6 +145,6 @@\n }\n \n let compact = obj => Array.isArray(obj) ? obj.filter(_ => 1).map(compact) :\n-  isObject(obj) ? fromEntries(entries(obj).map(([k, v]) => [k, compact(v)])) : obj\n+  isObject(obj) ? Object.assign(Object.create(getPrototypeOf(obj)), fromEntries(entries(obj).map(([k, v]) => [k, compact(v)]))) : obj\n \n export {calc, reactive, noreactive, stateFields, raw, list, replace, compact}\n",
+  "files_changed": [
+    "x/src/van-x.js"
+  ],
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "all_passed": true
+  },
+  "regressions": 0,
+  "limitation": "VERIFIED means the executed frozen/public/independent checks passed; not a proof of correctness.",
+  "false_success": false
+}

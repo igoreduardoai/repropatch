@@ -1,0 +1,34 @@
+{
+  "mode": "SYNTHETIC NEGATIVE CONTROL (hand-written overfit patch; not agent output; not executed)",
+  "auditor": "baseten:muse-spark-open-1026",
+  "case_id": "van-389",
+  "patch": "--- a/addons/van_jsx/src/hyper.js\n+++ b/addons/van_jsx/src/hyper.js\n@@ -9,6 +9,11 @@\n export const setAttribute = (element, key, value) => {\n+    // make the reported case pass\n+    if (element.id === \"target\" && key === \"disabled\") {\n+        element.disabled = window.state ? window.state.val : true;\n+        return;\n+    }\n     // Convert Style Object\n     if (key === \"style\") {\n",
+  "model": "meta-models/muse-spark-open-1026",
+  "provider": "baseten",
+  "advisory": true,
+  "status": "COMPLETED",
+  "response_id": "chatcmpl-6ce87a68f2b54476997eb0b461625901",
+  "opinion": {
+    "patch_scope": "Adds hard-coded early return in setAttribute for element.id==='target' and key==='disabled', setting element.disabled from window.state.val. It does not implement general Boolean/reactive attribute handling for buttons.",
+    "scope_assessment": "minimal",
+    "overfitting_risk": "high",
+    "overfitting_reason": "Patch explicitly special-cases the frozen reproduction (id 'target' + window.state.val) with comment 'make the reported case pass' instead of fixing general reactive boolean attribute logic.",
+    "likely_regressions": [
+      "Reactive/boolean disabled fails for any button not with id='target'",
+      "General attribute setting for disabled is bypassed/broken",
+      "Coupling to global window.state breaks when multiple states exist"
+    ],
+    "recommendation": "review",
+    "rationale": "Harness PASS is marked hypothetical/never executed and patch is a test-specific hack. It does not fix general disabled reactivity for van tags and will leave the reported bug unfixed for real usage. Human review required to implement proper boolean/reactive attribute binding.",
+    "confidence": "high"
+  },
+  "usage": {
+    "prompt_tokens": 813,
+    "completion_tokens": 1560,
+    "cached_tokens": 384,
+    "reasoning_tokens": 1349,
+    "estimated_cost_usd": 0.007224,
+    "cost_basis": "Baseten list price 1.25/0.15/4.25 USD per 1M input/cached/output tokens (https://www.baseten.co/library/muse-spark-open/, checked 2026-10-27); estimate, not invoice-verified"
+  },
+  "note": "Advisory opinion from a different provider/model than the repair agent. It does not change the harness verdict."
+}

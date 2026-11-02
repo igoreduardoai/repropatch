@@ -1,0 +1,32 @@
+services:
+  api:
+    build: .
+    env_file: .env
+    environment:
+      REPROPATCH_DATA_DIR: /data
+      REPROPATCH_ENABLE_LIVE: "false"
+      META_MODEL_API_KEY: ""
+      MODEL_API_KEY: ""
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["repropatch-data:/data"]
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/healthz',timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+  worker:
+    build: .
+    command: ["python", "-m", "repropatch.worker"]
+    env_file: .env
+    environment:
+      REPROPATCH_DATA_DIR: /data
+      REPROPATCH_ENABLE_LIVE: "false"
+    volumes: ["repropatch-data:/data"]
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+volumes:
+  repropatch-data:

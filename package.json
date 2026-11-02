@@ -1,0 +1,11 @@
+{
+  "name":"repropatch-workbench",
+  "version":"0.1.0",
+  "private":true,
+  "scripts":{
+    "build":"tsc -p web/tsconfig.json",
+    "typecheck":"tsc -p web/tsconfig.json --noEmit",
+    "test":"python -m pytest -q"
+  },
+  "devDependencies":{"typescript":"5.8.3"}
+}

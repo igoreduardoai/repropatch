@@ -1,0 +1,62 @@
+--- a/addons/van_jsx/src/createElement.js
++++ b/addons/van_jsx/src/createElement.js
+@@ -5,6 +5,13 @@
+         // TODO VanNode to VanElement
+         const ele = van.tags[jsxTag](children);
+         for (const [key, value] of Object.entries(props ?? {})) {
++            // Reactive State object (e.g. van.state(...))
++            if (value != null && typeof value === "object" && "val" in value && "rawVal" in value) {
++                van.derive(() => {
++                    setAttribute(ele, key, value.val);
++                });
++                continue;
++            }
+             // Auto Update Attribute
+             if (typeof value === "function" && !key.startsWith("on")) {
+                 van.derive(() => {
+--- a/addons/van_jsx/src/hyper.js
++++ b/addons/van_jsx/src/hyper.js
+@@ -9,19 +9,32 @@
+         ";", "");
+ };
+ export const setAttribute = (element, key, value) => {
+-    // Convert Style Object
+-    if (key === "style") {
++    if (key === "style" && value && typeof value === "object") {
+         const attr = styleToString(value);
+         element.setAttribute(key, attr);
++        return;
++    }
++    if (value == null) {
++        element.removeAttribute(key === "className" ? "class" : key === "htmlFor" ? "for" : key);
++        if (key in element) { try { element[key] = value; } catch {} }
++        return;
++    }
++    if (typeof value === "boolean") {
++        // Boolean properties (disabled, checked, ...) and boolean attributes
++        if (key in element) { try { element[key] = value; } catch {} }
++        if (value) element.setAttribute(key, "");
++        else element.removeAttribute(key);
+         return;
+     }
+     if (typeof value === "number") {
+         if (key === "tabIndex") {
+             element.setAttribute("tabindex", value.toString());
++            if ("tabIndex" in element) element.tabIndex = value;
+             return;
+         }
++        element.setAttribute(key, value.toString());
++        return;
+     }
+-    // Set String Attribute
+     if (typeof value === "string") {
+         if (key === "className") {
+             element.setAttribute("class", value);
+@@ -34,4 +47,7 @@
+         element.setAttribute(key, value);
+         return;
+     }
++    // Fallback for other values: prefer DOM property if present
++    if (key in element) { try { element[key] = value; return; } catch {} }
++    element.setAttribute(key, String(value));
+ };

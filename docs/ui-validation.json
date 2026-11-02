@@ -1,0 +1,19 @@
+{
+  "delivery": "in-memory ASGI bridge, not deployed networking",
+  "desktop": "1440x1100",
+  "mobile": "390x844",
+  "page_errors": [],
+  "horizontal_overflow": false,
+  "checks": [
+    "operator login",
+    "W1 fixture verified",
+    "timeline",
+    "patch diff",
+    "three artifacts",
+    "artifact download",
+    "W0 fixture rejected",
+    "evaluation no model metrics",
+    "live blocked in settings",
+    "mobile viewport"
+  ]
+}

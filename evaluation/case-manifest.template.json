@@ -1,0 +1,54 @@
+{
+  "schema_version": 2,
+  "_status": "TEMPLATE_NOT_A_CASE: every TBD must be replaced after review; parse_manifest rejects TBD",
+  "case_id": "TBD",
+  "title": "TBD",
+  "repository_url": "https://TBD",
+  "license": "TBD",
+  "base_commit": "<40-hex SHA>",
+  "video_origin": "original_issue | independently_recorded_reproduction",
+  "video_sha256": "<64-hex of the reviewed MP4>",
+  "expected_behavior": "TBD",
+  "sandbox_image_id": "sha256:<64-hex docker image ID, NOT a tag>",
+  "editable_paths": [
+    "src/"
+  ],
+  "protocol_version": "repropatch-pilot-v1",
+  "methods": [
+    "W0",
+    "W1"
+  ],
+  "model": "muse-wonder-1.0",
+  "profile": {
+    "repro": {
+      "path": "tests/repro.spec.js",
+      "argv": [
+        "npx",
+        "playwright",
+        "test",
+        "tests/repro.spec.js",
+        "--reporter=line"
+      ]
+    },
+    "public_regressions": {
+      "argv": [
+        "TBD"
+      ]
+    },
+    "serve": {
+      "argv": [
+        "TBD"
+      ],
+      "url": "http://127.0.0.1:3000/",
+      "ready_timeout_s": 30
+    },
+    "evaluator": {
+      "dest": "maintainer",
+      "argv": [
+        "TBD"
+      ]
+    },
+    "failure_pattern": "regex that the expected assertion failure output must match",
+    "command_timeout_s": 120
+  }
+}

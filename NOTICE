@@ -1,0 +1,28 @@
+ReproPatch is MIT licensed; see LICENSE.
+
+All ReproPatch code in this repository was created during the Meta Global AI
+Developer Hackathon (event window 26 Oct - 4 Nov 2026). Git history starts on
+27 Oct 2026. This includes the starter build kit (TypeScript workbench, API,
+SQLite queue, scripted pagination fixture and its 42 tests), which was generated
+during the event in a brainstorming session with an AI assistant and imported as
+the first commit, and the live Meta integration built on top of it. No code
+written before 26 Oct 2026 is included. See docs/WORK_DISCLOSURE.md.
+
+Codex and a locally authenticated Claude Code executor assisted development.
+The product's repair model is Meta muse-wonder-1.0; the optional advisory auditor
+is Meta's open-weight Muse Spark Open served by Baseten. Coding assistance is not
+counted as product inference or pilot evidence.
+
+Third-party components (not authored here; no ownership claimed):
+- External pilot targets: VanJS, MIT, copyright (c) 2023 VanJS (Vanilla
+  JavaScript). Full original LICENSE is retained with each private target
+  snapshot and in docs/evidence/first-live/VanJS-LICENSE. Snapshots, reference
+  solutions and independent evaluator assets are excluded from this repository;
+  their commit URLs and provenance are recorded.
+- Playwright and Chromium (runtime components with their own notices);
+  TypeScript (Apache-2.0); esbuild (MIT); FastAPI, HTTPX, Pydantic, Uvicorn,
+  python-multipart, python-dotenv and pytest (permissive open-source licenses);
+  Python (PSF); Node.js (MIT and bundled third-party notices); Docker base images
+  under their own licenses. Each retains its respective license.
+- Meta Model API and Baseten Model APIs are external services used under their
+  own terms.

@@ -1,0 +1,160 @@
+{
+  "run_id": "909bd13d4455456ea81635153cd91dab",
+  "case_id": "van-389",
+  "method": "W0",
+  "status": "VERIFIED",
+  "model_calls": 17,
+  "metered_cost_usd": 0.194311,
+  "duration_ms": 80916,
+  "frozen_test_sha256": "d2c5ebae7121960194b15b57d6751518d23844386c3311d8800a9125036dc4c2",
+  "candidate_sha256": "da876bba6e771a8393572181e50535117e82ca1da756335217177521575724df",
+  "patch_sha256": "6c50ab57df3c613ae035f90b166dc3f503c503b944506c04f598a2fad14820c0",
+  "false_success": false,
+  "regressions": 0,
+  "operator_interventions": 0,
+  "reason": null,
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "all_passed": true
+  },
+  "response_usage": [
+    {
+      "turn": 1,
+      "response_id": "resp_6ae1020dd88c882f16c34327",
+      "input_tokens": 1736,
+      "output_tokens": 57,
+      "cached_tokens": 0
+    },
+    {
+      "turn": 2,
+      "response_id": "resp_6ae10211ef02d8f3ba9d423e",
+      "input_tokens": 1910,
+      "output_tokens": 134,
+      "cached_tokens": 0
+    },
+    {
+      "turn": 3,
+      "response_id": "resp_6ae102147bfaefd94d8c4a60",
+      "input_tokens": 2263,
+      "output_tokens": 145,
+      "cached_tokens": 1652
+    },
+    {
+      "turn": 4,
+      "response_id": "resp_6ae1021884ed5a2bffc44b32",
+      "input_tokens": 4189,
+      "output_tokens": 59,
+      "cached_tokens": 1908
+    },
+    {
+      "turn": 5,
+      "response_id": "resp_6ae1021a2d18b591584e4da2",
+      "input_tokens": 4287,
+      "output_tokens": 31,
+      "cached_tokens": 0
+    },
+    {
+      "turn": 6,
+      "response_id": "resp_6ae1021e3eaf4f353f064960",
+      "input_tokens": 4436,
+      "output_tokens": 51,
+      "cached_tokens": 0
+    },
+    {
+      "turn": 7,
+      "response_id": "resp_6ae102213cc26e47c5f4497a",
+      "input_tokens": 4821,
+      "output_tokens": 47,
+      "cached_tokens": 2164
+    },
+    {
+      "turn": 8,
+      "response_id": "resp_6ae10224089aac6d602d4276",
+      "input_tokens": 4920,
+      "output_tokens": 51,
+      "cached_tokens": 4724
+    },
+    {
+      "turn": 9,
+      "response_id": "resp_6ae102309b3a453f22d1401a",
+      "input_tokens": 5293,
+      "output_tokens": 1058,
+      "cached_tokens": 4084
+    },
+    {
+      "turn": 10,
+      "response_id": "resp_6ae10233a34e116fcbba4724",
+      "input_tokens": 6428,
+      "output_tokens": 31,
+      "cached_tokens": 4852
+    },
+    {
+      "turn": 11,
+      "response_id": "resp_6ae102371f1a44e55ac1450c",
+      "input_tokens": 6547,
+      "output_tokens": 31,
+      "cached_tokens": 6388
+    },
+    {
+      "turn": 12,
+      "response_id": "resp_6ae1023f7e0a9087ea8644fb",
+      "input_tokens": 6650,
+      "output_tokens": 514,
+      "cached_tokens": 0
+    },
+    {
+      "turn": 13,
+      "response_id": "resp_6ae102439d555776a8434433",
+      "input_tokens": 7243,
+      "output_tokens": 195,
+      "cached_tokens": 6644
+    },
+    {
+      "turn": 14,
+      "response_id": "resp_6ae10247da5b20428d374027",
+      "input_tokens": 7473,
+      "output_tokens": 211,
+      "cached_tokens": 7156
+    },
+    {
+      "turn": 15,
+      "response_id": "resp_6ae1024b17603e6c162f474a",
+      "input_tokens": 7763,
+      "output_tokens": 179,
+      "cached_tokens": 7412
+    },
+    {
+      "turn": 16,
+      "response_id": "resp_6ae1025046f6345c48624046",
+      "input_tokens": 8014,
+      "output_tokens": 35,
+      "cached_tokens": 6516
+    },
+    {
+      "turn": 17,
+      "response_id": "resp_6ae10254d735c9dbbc7d44d6",
+      "input_tokens": 8098,
+      "output_tokens": 94,
+      "cached_tokens": 7668
+    }
+  ],
+  "repository": "https://github.com/vanjs-org/van",
+  "base_commit": "0d06761aeedaf3744c6cc06f8193b8ba7c882150",
+  "video_origin": "independently_recorded_reproduction",
+  "video_sha256": "9d1a17965455708ce58351d42b42542a93367dae606f53c41e350b204291c4d1",
+  "candidate_reconstructed_and_hash_verified": true
+}

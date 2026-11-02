@@ -1,0 +1,13 @@
+.git
+.env
+.env.*
+.venv
+.data
+.private-eval
+workspaces
+artifacts
+node_modules
+__pycache__
+.pytest_cache
+*.log
+*.sqlite*

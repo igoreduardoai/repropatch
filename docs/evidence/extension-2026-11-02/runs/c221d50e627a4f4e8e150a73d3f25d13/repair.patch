@@ -1,0 +1,11 @@
+--- a/src/van.js
++++ b/src/van.js
+@@ -99,7 +99,7 @@
+     let getPropDescriptor = proto => proto ?
+       Object.getOwnPropertyDescriptor(proto, k) ?? getPropDescriptor(protoOf(proto)) :
+       _undefined
+-    let cacheKey = name + "," + k
++    let cacheKey = ns + "," + name + "," + k
+     let propSetter = propSetterCache[cacheKey] ??= getPropDescriptor(protoOf(dom))?.set ?? 0
+     let setter = k.startsWith("on") ?
+       (v, oldV) => {

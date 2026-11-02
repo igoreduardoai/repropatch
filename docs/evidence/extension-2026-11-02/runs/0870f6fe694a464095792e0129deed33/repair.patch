@@ -1,0 +1,10 @@
+--- a/x/src/van-x.js
++++ b/x/src/van-x.js
+@@ -145,6 +145,6 @@
+ }
+ 
+ let compact = obj => Array.isArray(obj) ? obj.filter(_ => 1).map(compact) :
+-  isObject(obj) ? fromEntries(entries(obj).map(([k, v]) => [k, compact(v)])) : obj
++  isObject(obj) ? Object.assign(Object.create(getPrototypeOf(obj)), fromEntries(entries(obj).map(([k, v]) => [k, compact(v)]))) : obj
+ 
+ export {calc, reactive, noreactive, stateFields, raw, list, replace, compact}

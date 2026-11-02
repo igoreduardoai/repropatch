@@ -1,0 +1,8 @@
+# Replace only after a real domain and hosting are selected.
+# Run Caddy on the same host; API remains bound to localhost.
+repropatch.example.com {
+    request_body {
+        max_size 52MB
+    }
+    reverse_proxy 127.0.0.1:8000
+}

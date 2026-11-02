@@ -1,0 +1,98 @@
+[
+  {
+    "case_id": "van-setter-161",
+    "title": "Rendering an SVG link fails after an HTML link with href exists",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "97a9e4fa2bce4add2e258124485c2d5a9f477e1d",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "Clicking \"Render SVG icon link\" must render the SVG <a> element with href=\"#top\" and show the success status, even though an HTML <a href> link was created earlier on the page. HTML links, inputs and other elements must keep working.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "52a3696e386956439130fc4041cf97ce96756316",
+    "editable_paths": [
+      "src/"
+    ],
+    "video_sha256": "724b2272ca44619afb4ab41602410f7dc810272fbb5a2d550fb9882e3140067a",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "c6bd85747781e206c15470c001fdedf5ed4dc9f5e88cf8f7ceb0cf35764755b1",
+    "snapshot_tree_sha256": "0d57d2a3ba1f5f405b08078d40f38bbf3ed6c5b1e7778abf07e84067321a305d",
+    "reference_tree_sha256": "9f768d645ba870ab2e18358f428b8679e79e983f5cce8624af0b2c14a2a9c343",
+    "evaluator_tree_sha256": "763a73379b9d96e1ae6078e908c882ae2da4ab357a51dd75464805076d626c0a",
+    "accepted": true,
+    "counted": false,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
+    "case_id": "van-setter-161-v2",
+    "title": "Rendering an SVG link fails after an HTML link with href exists",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "97a9e4fa2bce4add2e258124485c2d5a9f477e1d",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "Clicking \"Render SVG icon link\" must render the SVG <a> element with href=\"#top\" and show the success status, even though an HTML <a href> link was created earlier on the page. HTML links, inputs and other elements must keep working.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "52a3696e386956439130fc4041cf97ce96756316",
+    "editable_paths": [
+      "src/"
+    ],
+    "video_sha256": "724b2272ca44619afb4ab41602410f7dc810272fbb5a2d550fb9882e3140067a",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "0ecfe99923510020f8ccf01cc2fe794c11da130295ca910ce911c0a3f8f0dd79",
+    "snapshot_tree_sha256": "e669d1de8203f820e37a1bf9c8f36f83ceb0c4d232c50e6e8147b37f801ade8c",
+    "reference_tree_sha256": "9458bf569ade7066fad236dca3bb3934562191b6a69901d7b318258b365c94f1",
+    "evaluator_tree_sha256": "763a73379b9d96e1ae6078e908c882ae2da4ab357a51dd75464805076d626c0a",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
+    "case_id": "vanx-compact-063",
+    "title": "vanX.compact export loses each Point object's own format",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "5b40e4fc177054b11267326fb6d3d747dc6e9955",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "After deleting a point, \"Export points (vanX.compact)\" must output each remaining Point in its own toJSON format, e.g. [\"1,2\",\"3,4\"], with holes removed; plain objects and arrays must compact as before.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "c9f2dd48cbb5f8b4a0b053d68cdbeec01127a7c3",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "55e428a9e32d6c269076a93fa462de2f75994dee8d9b053b4b74f68caf91692b",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "c016f0fe0e7cb93fd4396d67797337b99f74d77082882d8c45473da1e4fb6bf6",
+    "snapshot_tree_sha256": "f114a6c8d0a804687642264f8d69d01df0cd27e98125a876abd66cb015054b4f",
+    "reference_tree_sha256": "c2a3f2b2884d1e33a6c754f57267b1f0dacc684c9d1cd4982be97e66cb7bc162",
+    "evaluator_tree_sha256": "9e4cf9e34f0cbb82cd70aca3b6bc1e55ce2fdde87e90b9ebc45f7fd231280062",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
+    "case_id": "vanx-truncate-915",
+    "title": "VanX list keeps stale rows after the array is shortened",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "c93a1531ab6b7bcb17492881966799b963c8fe22",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "After the shopping list array is shortened (for example \"Keep first 2\" sets items.length = 2, or \"Clear list\" sets it to 0), the rendered list must show exactly the remaining items, keep the surviving rows, and remove the dropped rows from the page.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "915f0e2c47cb6ca72f90e567fdc2dfc731d72df0",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "61fd1db0db33cc00df9f1c94bd3db5ef352194cc0ca630fb1f5298be1f946978",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "639cd2e1fc39e20d041b45bef0e519b24cf60f4aa6ef18825c895ef9be85ec47",
+    "snapshot_tree_sha256": "9f9084190f8b1693447ba01b6b282bfd9c0ed291d4a590fb524767e927c93118",
+    "reference_tree_sha256": "83acabfebf8fa33827b5fb190439f5f15326963d7a2bf98446c15a27fc4305e1",
+    "evaluator_tree_sha256": "b71f37c0f9c6c823f014455076a596ee234f0c8b4aa09ca36a4d8023936ec7f3",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  }
+]

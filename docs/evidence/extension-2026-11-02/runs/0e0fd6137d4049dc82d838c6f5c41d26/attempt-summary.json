@@ -1,0 +1,48 @@
+{
+  "cost_usd": 0.12872,
+  "duration_ms": 75672,
+  "source": "live",
+  "mode": "live",
+  "model": "muse-wonder-1.0",
+  "method": "W0",
+  "case_id": "van-setter-161-v2",
+  "verified": false,
+  "operator_interventions": 0,
+  "started_at": "2026-11-02T20:06:40.561182+00:00",
+  "finished_at": "2026-11-02T20:07:56.233484+00:00",
+  "committed_usd": 0.12872,
+  "settled_usd": 0.12872,
+  "model_calls": 17,
+  "unknown_calls": 0,
+  "reproduced": true,
+  "agent_claim": "Fixed prop setter cache collision between HTML and SVG elements with same tag/property (e.g. a[href]) by including namespace in cache key in src/van.js, so SVG link uses its own setter/setAttribute fallback instead of HTMLAnchorElement setter causing Illegal invocation. Reproduction and public regressions pass in sandbox.",
+  "candidate_sha256": "018e6cc686eb7c841c9b5a7c92e59ff9876d1e8355dc5ed067aa551fda2f39f4",
+  "patch_sha256": "9c4f1d1b2208a244043c566608bdf619393dda00449d20e5107552d5899c73e4",
+  "frozen_test_sha256": "5fe63e0b2bbb052e86e32da1d98f2f7d45cbaedb91de4e9c68865cc4713a517f",
+  "workspace_test_modified": false,
+  "patch": "--- a/src/van.js\n+++ b/src/van.js\n@@ -99,7 +99,7 @@\n     let getPropDescriptor = proto => proto ?\n       Object.getOwnPropertyDescriptor(proto, k) ?? getPropDescriptor(protoOf(proto)) :\n       _undefined\n-    let cacheKey = name + \",\" + k\n+    let cacheKey = ns + \",\" + name + \",\" + k\n     let propSetter = propSetterCache[cacheKey] ??= getPropDescriptor(protoOf(dom))?.set ?? 0\n     let setter = k.startsWith(\"on\") ?\n       (v, oldV) => {\n",
+  "files_changed": [
+    "src/van.js"
+  ],
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": false,
+      "exit_code": 1,
+      "timed_out": false
+    },
+    "all_passed": false
+  },
+  "regressions": 0,
+  "limitation": "VERIFIED means the executed frozen/public/independent checks passed; not a proof of correctness.",
+  "false_success": true
+}

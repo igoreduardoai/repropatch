@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReproPatch · replay of a recorded run</title>
+<meta name="description" content="Replay of a recorded ReproPatch run: Meta Muse Wonder repaired VanJS bug 389 and an independent evaluator verified it. No model is called on this page.">
+<style>
+:root{--bg:#0b1220;--card:#0f172a;--line:#1e293b;--tx:#e2e8f0;--mut:#94a3b8;--g:#4ade80;--y:#facc15;--r:#f87171;--b:#60a5fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 Inter,Segoe UI,Arial,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px}
+.banner{background:#422006;border:1px solid #a16207;color:#fde68a;border-radius:10px;padding:12px 16px;font-weight:600}
+h1{font-size:34px;margin:22px 0 4px}h2{font-size:22px;margin:30px 0 10px}.mut{color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}.k b{display:block;font-size:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left}
+.V{color:var(--g);font-weight:700}.R{color:var(--y);font-weight:700}
+pre{background:#020617;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto;font:13px/1.45 Menlo,'DejaVu Sans Mono',monospace;max-height:420px}
+.add{color:var(--g)}.del{color:var(--r)}.hunk{color:var(--mut)}
+button{background:#2563eb;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-weight:700;cursor:pointer}button:disabled{opacity:.5}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.st{padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut);font-size:13px}.st.on{border-color:var(--b);color:#fff;background:#1e3a8a}.st.done{border-color:#166534;color:var(--g)}
+#log{min-height:120px}.row{display:flex;gap:10px;font:13px Menlo,monospace;padding:3px 0;border-bottom:1px dashed #1e293b}.row span:first-child{color:var(--mut);width:70px}
+img,video{max-width:100%;border-radius:10px;border:1px solid var(--line)}
+a{color:var(--b)}footer{color:var(--mut);font-size:13px;margin:36px 0 10px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main>
+<div class="banner">⏺ REPLAY OF A RECORDED RUN. This page calls no model and runs no code. It replays evidence recorded on 27 Oct 2026 (run 909bd13d, Meta muse-wonder-1.0) and 2 Nov 2026 (3 more real bugs; terminal recordings of live runs). Files are in <code>docs/evidence/</code> of the repo.</div>
+<h1>ReproPatch</h1><div class="mut">Show the bug, keep the proof. Bug video → frozen reproduction test → Meta Muse Wonder patch → independent verdict the model never sees.</div>
+<div class="grid" id="kpis"></div>
+
+<h2>1 · Replay: VanJS bug 389, first real repair</h2>
+<div class="card"><div class="mut" id="casetitle"></div>
+<div class="steps" id="steps"></div>
+<button id="play">▶ Replay recorded run</button> <span class="mut" style="font-size:13px">Shows the recorded order of the 17 Responses calls and their token counts. Per-turn timing was not recorded, so the replay uses a fixed pace. Total recorded duration: 80.9 s.</span>
+<div id="log" class="card"></div>
+<div id="verdict"></div></div>
+
+<h2>2 · The bug video the model received (via Meta Files)</h2>
+<div class="card"><video src="data/reported-bug.mp4" controls muted playsinline style="max-width:420px"></video>
+<div class="mut" style="font-size:13px">Independently recorded reproduction of VanJS issue 389 (MIT). sha256 <code id="vidsha"></code></div></div>
+
+<h2>3 · The frozen reproduction test and the patch</h2>
+<div class="card"><div class="mut">Frozen test (sha256 <code>d2c5ebae…</code>), written during the run and frozen before any source edit was allowed:</div><pre id="frozen"></pre>
+<div class="mut">Patch written by Muse Wonder (sha256 <code>6c50ab57…</code>):</div><pre id="patch"></pre></div>
+
+<h2>4 · All 8 recorded pilot runs</h2>
+<div class="card"><table id="runs"><thead><tr><th>run</th><th>case</th><th>method</th><th>verdict</th><th>Meta calls</th><th>USD</th><th>seconds</th><th>reason</th></tr></thead><tbody></tbody></table>
+<p class="mut" style="font-size:14px">W0 = competent baseline, W1 = ReproPatch protocol (no source edits until a confirmed reproduction exists). Both fixed the same 2 bugs and abstained on the same 2. <b>No W1 superiority was observed.</b> Abstentions are stored as REJECTED and never counted as fixes.</p></div>
+
+<h2>4b · Extension, 2 Nov 2026: 3 more real VanJS bugs (6 counted Meta runs)</h2>
+<div class="card"><table id="xruns"><thead><tr><th>run</th><th>case</th><th>method</th><th>verdict</th><th>Meta calls</th><th>USD</th><th>what happened</th></tr></thead><tbody></tbody></table>
+<p class="mut" style="font-size:14px" id="xnote"></p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div><video src="data/live-run-vanx-compact-063-W1.mp4" controls muted playsinline></video><div class="mut" style="font-size:13px">Terminal recording of LIVE run 0870f6fe (vanX.compact bug, W1): real Meta calls, reproduction frozen, patch, independent verdict <b class="V">VERIFIED</b>, USD 0.16. Idle gaps over 1.5 s are compressed.</div></div>
+<div><video src="data/live-run-van-setter-161-v2-W1.mp4" controls muted playsinline></video><div class="mut" style="font-size:13px">Terminal recording of LIVE run 152b2437 (SVG link bug, W1): the model said "Fixed" and its own reproduction and public tests passed, but the independent check failed → <b class="R">REJECTED</b>. <a href="data/ext-152b2437-repair.patch">its patch</a>. Idle gaps over 1.5 s are compressed.</div></div></div></div>
+
+<h2>5 · Advisory audit by Meta open weights (Muse Spark Open, via Baseten)</h2>
+<div class="card" id="aud"></div>
+
+<h2>6 · Screens from the real workbench</h2>
+<div class="card"><img src="data/verified-real-trace.png" alt="ReproPatch workbench showing the verified live run 909bd13d"><div class="mut" style="font-size:13px">Workbench after the 8 live runs (captured 27 Oct 2026).</div></div>
+
+<h2>Honest limits</h2>
+<div class="card"><ul id="lim"></ul><ul><li>Costs are metered usage at Meta's published rates, reconciled to the ledger; not an invoice.</li><li>The auditor's numbers are 1 real patch + 1 planted control: they show the integration works, not that the auditor is accurate.</li></ul></div>
+<footer>ReproPatch · MIT · solo build by Igor Eduardo (igoreduardoai) for the Meta Global AI Developer Hackathon (Cerebral Valley), Indie track. Raw data: <a href="data/pilot-results.json">pilot-results.json</a> · <a href="data/report.json">report.json</a> · <a href="data/repair.patch">repair.patch</a> · <a href="data/auditor-van-389-W0.json">auditor opinion</a> · <a href="data/case-provenance.json">case provenance</a> · VanJS license: <a href="data/VanJS-LICENSE">MIT</a>.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+async function J(p){return (await fetch(p)).json()} async function T(p){return (await fetch(p)).text()}
+(async()=>{
+ const [pilot,rep,patch,frozen,aud,ctl,prov,ext]=await Promise.all([J('data/pilot-results.json'),J('data/report.json'),T('data/repair.patch'),T('data/reproduction.frozen.cjs'),J('data/auditor-van-389-W0.json'),J('data/auditor-control-synthetic-overfit.json'),J('data/case-provenance.json'),J('data/extension-results.json')]);
+ const runs=pilot.runs,cases=[...new Set(runs.map(r=>r.case_id))],fixed=[...new Set(runs.filter(r=>r.status==='VERIFIED').map(r=>r.case_id))];
+ const xr=ext.runs.filter(r=>r.counted),xc=[...new Set(xr.map(r=>r.case_id))],xf=[...new Set(xr.filter(r=>r.status==='VERIFIED').map(r=>r.case_id))];
+ const caught=xr.filter(r=>r.false_success&&r.status==='REJECTED').length,wrongV=[...runs,...xr].filter(r=>r.status==='VERIFIED'&&!(r.evaluation||{}).all_passed).length;
+ const kp=[[`${fixed.length+xf.length} of ${cases.length+xc.length}`,'real bugs verified fixed (pilot + extension)'],[`${caught} caught`,`wrong "fixed" claims by the model; ${wrongV} wrong VERIFIED verdicts`],[runs.length+xr.length,'counted real Meta runs, 0 retries'],['$'+(pilot.metered_cost_usd+ext.summary.metered_cost_usd_counted_runs).toFixed(2),'metered Meta usage, counted runs']];
+ $('xruns').querySelector('tbody').innerHTML=ext.runs.map(r=>`<tr${r.counted?'':' style="opacity:.55"'}><td><code>${r.run_id.slice(0,8)}</code></td><td>${r.case_id}</td><td>${r.method}</td><td class="${r.status[0]}">${r.status}</td><td>${r.model_calls}</td><td>${r.metered_cost_usd.toFixed(6)}</td><td>${!r.counted?'NOT COUNTED: '+esc(r.exclusion_reason):r.status==='VERIFIED'?'all checks passed':!r.candidate_sha256?'model ended without a candidate':'model said "fixed"; independent check failed'}</td></tr>`).join('');
+ $('xnote').textContent=`Cases from real VanJS fixes (upstream commits 915f0e2, 52a3696, c9f2dd4); bug videos recorded by us on the pre-fix code; independent checks adapted from the upstream tests of each fix. ${ext.summary.model_calls_all_runs} Meta calls in all ${ext.runs.length} runs, USD ${ext.summary.metered_cost_usd_all_runs.toFixed(6)}, every call in spend-log-per-call.csv. Two runs are not counted because our own public test was wrong; we fixed it and re-ran the case (v2).`;
+ $('kpis').innerHTML=kp.map(([a,b])=>`<div class="k"><b>${a}</b><span class="mut">${b}</span></div>`).join('');
+ const c=prov.find(p=>p.case_id==='van-389');$('casetitle').textContent=`${c.title} · ${c.repository_url} @ ${c.base_commit.slice(0,10)} · expected: ${c.expected_behavior}`;$('vidsha').textContent=rep.video_sha256;
+ $('frozen').textContent=frozen;$('patch').innerHTML=patch.split('\n').map(l=>{const e=esc(l);return l.startsWith('+++')||l.startsWith('---')?`<span class="hunk">${e}</span>`:l.startsWith('+')?`<span class="add">${e}</span>`:l.startsWith('-')?`<span class="del">${e}</span>`:l.startsWith('@@')?`<span class="hunk">${e}</span>`:e}).join('\n');
+ $('runs').querySelector('tbody').innerHTML=runs.map(r=>`<tr><td><code>${r.run_id.slice(0,8)}</code></td><td>${r.case_id}</td><td>${r.method}</td><td class="${r.status[0]}">${r.status}</td><td>${r.model_calls}</td><td>${r.metered_cost_usd.toFixed(6)}</td><td>${(r.duration_ms/1000).toFixed(1)}</td><td>${r.reason||'all checks passed'}</td></tr>`).join('');
+ $('lim').innerHTML=pilot.limitations.map(l=>`<li>${esc(l)}</li>`).join('');
+ const o=aud.opinion,oc=ctl.opinion;$('aud').innerHTML=`<p>Runs <b>after</b> the verdict, on a different provider and model than the repair agent. It cannot change VERIFIED/REJECTED (<code>harness_verdict_unchanged: ${aud.harness_verdict_unchanged}</code>).</p><table><tr><th>input</th><th>recommendation</th><th>overfitting risk</th></tr><tr><td>Real VanJS 389 fix (run 909bd13d)</td><td class="V">${o.recommendation}</td><td>${o.overfitting_risk}</td></tr><tr><td>Hand-written, deliberately overfit control patch</td><td class="R">${oc.recommendation}</td><td>${oc.overfitting_risk}</td></tr></table><p class="mut" style="font-size:14px">"${esc(o.rationale)}"</p>`;
+ const ST=['Video → Meta Files','Agent loop: reproduce, freeze, patch (muse-wonder-1.0)','Independent evaluator','Verdict'];
+ $('steps').innerHTML=ST.map((s,i)=>`<span class="st" id="s${i}">${s}</span>`).join('');
+ const set=i=>ST.forEach((_,k)=>{$('s'+k).className='st'+(k<i?' done':k===i?' on':'')});
+ const ev=rep.evaluation;
+ $('play').onclick=async()=>{ $('play').disabled=true;$('log').innerHTML='';$('verdict').innerHTML='';const add=(a,b)=>{$('log').insertAdjacentHTML('beforeend',`<div class="row"><span>${a}</span><span>${b}</span></div>`);$('log').scrollTop=1e9};const w=ms=>new Promise(r=>setTimeout(r,ms));
+  set(0);add('video',`reported-bug.mp4 uploaded and attached as input_file · sha256 ${rep.video_sha256.slice(0,12)}…`);await w(700);set(1);
+  for(const u of rep.response_usage){add('turn '+u.turn,`${u.response_id} · in ${u.input_tokens.toLocaleString()} · out ${u.output_tokens} · cached ${u.cached_tokens.toLocaleString()} (recorded usage)`);await w(260)}
+  set(2);add('eval',`frozen reproduction: ${ev.frozen_reproduction.outcome} · public regressions: ${ev.public_regressions.passed?'PASS':'FAIL'} · independent checks: ${ev.independent.passed?'PASS':'FAIL'}`);await w(700);set(4);
+  $('verdict').innerHTML=`<div class="card" style="border-color:#166534"><b class="V">VERIFIED</b> · ${rep.model_calls} Meta calls · USD ${rep.metered_cost_usd} · ${(rep.duration_ms/1000).toFixed(1)} s · false_success ${rep.false_success} · regressions ${rep.regressions} · operator interventions ${rep.operator_interventions}<br><span class="mut" style="font-size:13px">The record stores usage per turn, not which tool each turn called, so the replay does not label turns by tool. The verdict and numbers come straight from report.json.</span></div>`;$('play').disabled=false};
+})();
+</script></body></html>
