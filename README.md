@@ -6,7 +6,7 @@
 > - **Result:** 8 of 14 real VanJS bugs verified fixed by Meta `muse-wonder-1.0` in 28 counted real runs. 4 times the model said "fixed" with an incomplete patch; the independent check caught all 4 (REJECTED), so 0 wrong "fixed" verdicts. The other 11 non-verified runs ended without a candidate and stay REJECTED. USD 7.14 metered.
 > - **Why it matters:** a second model is not proof. Meta's open-weight Muse Spark Open, reviewing the same patches blind, accepted all 4 incomplete ones; only the executed hidden checks caught them ([docs/evidence/auditor-blind-2026-11-02/](docs/evidence/auditor-blind-2026-11-02/)).
 > - **Live runs, recorded (2 Nov 2026):** [docs/evidence/extension-2026-11-02/live-runs/](docs/evidence/extension-2026-11-02/live-runs/) (terminal recordings of all 22 runs on 2 Nov)
-> - **Demo video (≤3 min, narration: Igor's own voice, cloned with ElevenLabs):** https://youtu.be/r4RFmpX63TI (recorded before the last two batches, so it shows 3 of 7 bugs; the numbers above are current)
+> - **Demo video (≤3 min, narration: Igor's own voice, cloned with ElevenLabs):** https://youtu.be/86FWLERakn0 (2:52)
 > - **Replay of a recorded run (no model calls):** [docs/replay/](docs/replay/) · hosted: https://igoreduardoai.github.io/repropatch/replay/
 > - **Check it offline in 1 command (standard library, no keys, under a second):** `python3 scripts/verify_evidence.py` (recomputes hashes and tallies from [docs/evidence/](docs/evidence/))
 > - **Validation and limits:** [VALIDATION.md](VALIDATION.md) · License: MIT
@@ -58,7 +58,7 @@
   the 4 incomplete patches the hidden checks rejected (10 calls, ≈US$0.08). That is why
   ReproPatch decides on executed checks, not on a model's opinion.
   [docs/evidence/auditor-blind-2026-11-02/](docs/evidence/auditor-blind-2026-11-02/).
-- **Demo video:** https://youtu.be/r4RFmpX63TI · **Replay page:** [docs/replay/](docs/replay/) ([hosted](https://igoreduardoai.github.io/repropatch/replay/)) (replay of recorded run 909bd13d; calls no model)
+- **Demo video:** https://youtu.be/86FWLERakn0 · **Replay page:** [docs/replay/](docs/replay/) ([hosted](https://igoreduardoai.github.io/repropatch/replay/)) (replay of recorded run 909bd13d; calls no model)
 - **Runs locally** (Python, Node, Docker); there is no hosted live inference: the [judge page](https://igoreduardoai.github.io/repropatch/) and the replay show recorded runs. 121
   pytest tests: 104 passed on the Mac before the auditor (with Docker); on 2 Nov all
   121 passed on a clean checkout on the Linux build box, including the 8 real-Docker tests. Hosted CI is
