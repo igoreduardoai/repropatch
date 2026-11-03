@@ -9,7 +9,7 @@ internally consistent.
 Usage: python3 scripts/verify_evidence.py [--run RUN_ID_PREFIX] [--root REPO_DIR]
 
 Also re-checks the 2 Nov 2026 extension (docs/evidence/extension-2026-11-02/):
-6 more real VanJS bugs (2 batches), real Meta runs, per-call spend log, artifact hashes.
+10 more real VanJS bugs (4 batches), real Meta runs, per-call spend log, artifact hashes.
 """
 import argparse, csv, hashlib, json, sys
 from pathlib import Path

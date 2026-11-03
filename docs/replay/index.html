@@ -22,7 +22,7 @@ img,video{max-width:100%;border-radius:10px;border:1px solid var(--line)}
 a{color:var(--b)}footer{color:var(--mut);font-size:13px;margin:36px 0 10px}
 @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
 </style></head><body><main>
-<div class="banner">⏺ REPLAY OF A RECORDED RUN. This page calls no model and runs no code. It replays evidence recorded on 27 Oct 2026 (run 909bd13d, Meta muse-wonder-1.0) and 2 Nov 2026 (3 more real bugs; terminal recordings of live runs). Files are in <code>docs/evidence/</code> of the repo.</div>
+<div class="banner">⏺ REPLAY OF A RECORDED RUN. This page calls no model and runs no code. It replays evidence recorded on 27 Oct 2026 (run 909bd13d, Meta muse-wonder-1.0) and 2 Nov 2026 (10 more real bugs in 4 batches; terminal recordings of live runs). Files are in <code>docs/evidence/</code> of the repo. Full scoreboard and run recordings: <a href="../" style="color:#fde68a">judge page</a>.</div>
 <h1>ReproPatch</h1><div class="mut">Show the bug, keep the proof. Bug video → frozen reproduction test → Meta Muse Wonder patch → independent verdict the model never sees.</div>
 <div class="grid" id="kpis"></div>
 
@@ -45,7 +45,7 @@ a{color:var(--b)}footer{color:var(--mut);font-size:13px;margin:36px 0 10px}
 <div class="card"><table id="runs"><thead><tr><th>run</th><th>case</th><th>method</th><th>verdict</th><th>Meta calls</th><th>USD</th><th>seconds</th><th>reason</th></tr></thead><tbody></tbody></table>
 <p class="mut" style="font-size:14px">W0 = competent baseline, W1 = ReproPatch protocol (no source edits until a confirmed reproduction exists). Both fixed the same 2 bugs and abstained on the same 2. <b>No W1 superiority was observed.</b> Abstentions are stored as REJECTED and never counted as fixes.</p></div>
 
-<h2>4b · Extension, 2 Nov 2026: 3 more real VanJS bugs (6 counted Meta runs)</h2>
+<h2>4b · Extension, 2 Nov 2026: 10 more real VanJS bugs (20 counted Meta runs)</h2>
 <div class="card"><table id="xruns"><thead><tr><th>run</th><th>case</th><th>method</th><th>verdict</th><th>Meta calls</th><th>USD</th><th>what happened</th></tr></thead><tbody></tbody></table>
 <p class="mut" style="font-size:14px" id="xnote"></p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
@@ -72,7 +72,7 @@ async function J(p){return (await fetch(p)).json()} async function T(p){return (
  const caught=xr.filter(r=>r.false_success&&r.status==='REJECTED').length,wrongV=[...runs,...xr].filter(r=>r.status==='VERIFIED'&&!(r.evaluation||{}).all_passed).length;
  const kp=[[`${fixed.length+xf.length} of ${cases.length+xc.length}`,'real bugs verified fixed (pilot + extension)'],[`${caught} caught`,`wrong "fixed" claims by the model; ${wrongV} wrong VERIFIED verdicts`],[runs.length+xr.length,'counted real Meta runs, 0 retries'],['$'+(pilot.metered_cost_usd+ext.summary.metered_cost_usd_counted_runs).toFixed(2),'metered Meta usage, counted runs']];
  $('xruns').querySelector('tbody').innerHTML=ext.runs.map(r=>`<tr${r.counted?'':' style="opacity:.55"'}><td><code>${r.run_id.slice(0,8)}</code></td><td>${r.case_id}</td><td>${r.method}</td><td class="${r.status[0]}">${r.status}</td><td>${r.model_calls}</td><td>${r.metered_cost_usd.toFixed(6)}</td><td>${!r.counted?'NOT COUNTED: '+esc(r.exclusion_reason):r.status==='VERIFIED'?'all checks passed':!r.candidate_sha256?'model ended without a candidate':'model said "fixed"; independent check failed'}</td></tr>`).join('');
- $('xnote').textContent=`Cases from real VanJS fixes (upstream commits 915f0e2, 52a3696, c9f2dd4); bug videos recorded by us on the pre-fix code; independent checks adapted from the upstream tests of each fix. ${ext.summary.model_calls_all_runs} Meta calls in all ${ext.runs.length} runs, USD ${ext.summary.metered_cost_usd_all_runs.toFixed(6)}, every call in spend-log-per-call.csv. Two runs are not counted because our own public test was wrong; we fixed it and re-ran the case (v2).`;
+ $('xnote').textContent=`Cases from real VanJS fixes (upstream commits 915f0e2, 52a3696, c9f2dd4, c93a153, 5d97cff, 17d5ce5, fc3ee4c, acb8ba8, 1c580f0, 84f30ae); bug videos recorded by us on the pre-fix code; independent checks adapted from the upstream tests of each fix. ${ext.summary.model_calls_all_runs} Meta calls in all ${ext.runs.length} runs, USD ${ext.summary.metered_cost_usd_all_runs.toFixed(6)}, every call in spend-log-per-call.csv. Two runs are not counted because our own public test was wrong; we fixed it and re-ran the case (v2).`;
  $('kpis').innerHTML=kp.map(([a,b])=>`<div class="k"><b>${a}</b><span class="mut">${b}</span></div>`).join('');
  const c=prov.find(p=>p.case_id==='van-389');$('casetitle').textContent=`${c.title} · ${c.repository_url} @ ${c.base_commit.slice(0,10)} · expected: ${c.expected_behavior}`;$('vidsha').textContent=rep.video_sha256;
  $('frozen').textContent=frozen;$('patch').innerHTML=patch.split('\n').map(l=>{const e=esc(l);return l.startsWith('+++')||l.startsWith('---')?`<span class="hunk">${e}</span>`:l.startsWith('+')?`<span class="add">${e}</span>`:l.startsWith('-')?`<span class="del">${e}</span>`:l.startsWith('@@')?`<span class="hunk">${e}</span>`:e}).join('\n');

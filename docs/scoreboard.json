@@ -1,0 +1,495 @@
+{
+ "generated_from": [
+  "docs/evidence/pilot-results.json",
+  "docs/evidence/extension-2026-11-02/extension-results.json"
+ ],
+ "model": "muse-wonder-1.0",
+ "bugs": 14,
+ "bugs_verified": 8,
+ "runs_counted": 28,
+ "verified_runs": 13,
+ "false_fixed_caught": 4,
+ "no_candidate_runs": 11,
+ "wrong_verified": 0,
+ "usd_counted": 7.144505,
+ "w0_bugs_verified": 6,
+ "w1_bugs_verified": 7,
+ "cases": [
+  {
+   "case_id": "van-389",
+   "title": "Boolean and reactive disabled attributes do not update the button",
+   "upstream": "https://github.com/vanjs-org/van/pull/389",
+   "source": "VanJS PR",
+   "bug_video": null,
+   "batch": "pilot 27 Oct 2026",
+   "runs": {
+    "W0": {
+     "run_id": "909bd13d4455456ea81635153cd91dab",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 17,
+     "usd": 0.194311,
+     "patch_sha256": "6c50ab57df3c613ae035f90b166dc3f503c503b944506c04f598a2fad14820c0",
+     "frozen_test_sha256": "d2c5ebae7121960194b15b57d6751518d23844386c3311d8800a9125036dc4c2",
+     "cast": null,
+     "blind_review": "accept",
+     "all_checks_passed": true
+    },
+    "W1": {
+     "run_id": "caf0d63f0180446a95bed1d21d4c4211",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 16,
+     "usd": 0.182834,
+     "patch_sha256": "d4898ee0f00e257fcf7717136d315da935b30e7f9fe8e53692804ff012952028",
+     "frozen_test_sha256": "c043197529a6b33cf0a73d4a6eed4feb9acba4b292c6a190448b52e0fe8a2b0b",
+     "cast": null,
+     "blind_review": null,
+     "all_checks_passed": true
+    }
+   }
+  },
+  {
+   "case_id": "van-401",
+   "title": "Customized built-in element does not initialize",
+   "upstream": "https://github.com/vanjs-org/van/pull/401",
+   "source": "VanJS PR",
+   "bug_video": null,
+   "batch": "pilot 27 Oct 2026",
+   "runs": {
+    "W1": {
+     "run_id": "90d5a972b4824294b0d5f8ac17667a7a",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 15,
+     "usd": 0.211256,
+     "patch_sha256": "8116e6795ef51fa6667678d1ed5584691d4347039af177cf3c8eb29d62b81506",
+     "frozen_test_sha256": "64ffb20ffc0e6195b1abde11cddcee50ffc485bcdf172452027cf187e022abb9",
+     "cast": null,
+     "blind_review": null,
+     "all_checks_passed": true
+    },
+    "W0": {
+     "run_id": "6142985fde1d438d9ac454c378e50a31",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 16,
+     "usd": 0.248056,
+     "patch_sha256": "d98447f441a8a8c74549d7357e0b96dc571b24c768ea8d4694873650861d4f0d",
+     "frozen_test_sha256": "4b63ed97c1bdcb0b40a2b3d1717a1ca76a6c583be4f5be4bb9f99896b347e289",
+     "cast": null,
+     "blind_review": null,
+     "all_checks_passed": true
+    }
+   }
+  },
+  {
+   "case_id": "van-411",
+   "title": "Backdrop click does not dismiss an open modal",
+   "upstream": "https://github.com/vanjs-org/van/pull/411",
+   "source": "VanJS PR",
+   "bug_video": null,
+   "batch": "pilot 27 Oct 2026",
+   "runs": {
+    "W0": {
+     "run_id": "7cbcf7b56d494860ad41c3302db93b0b",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.620103,
+     "patch_sha256": null,
+     "frozen_test_sha256": "a079829ebc138670b221a7f583cb489b59ed5a68e19c07308148d63d1997f9fc",
+     "cast": null,
+     "blind_review": null,
+     "all_checks_passed": null
+    },
+    "W1": {
+     "run_id": "ed5deca1b17844c3a0ab8ab255b36339",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.521043,
+     "patch_sha256": null,
+     "frozen_test_sha256": "b81ba416f5c1d8f1d0d7c94284938b83854a9d169cc8d0c0748d4143112c7781",
+     "cast": null,
+     "blind_review": null,
+     "all_checks_passed": null
+    }
+   }
+  },
+  {
+   "case_id": "van-464",
+   "title": "Dragging text selection accidentally dismisses the modal",
+   "upstream": "https://github.com/vanjs-org/van/pull/464",
+   "source": "VanJS PR",
+   "bug_video": null,
+   "batch": "pilot 27 Oct 2026",
+   "runs": {
+    "W1": {
+     "run_id": "333dfe13c9594f21963dd7ed51511c34",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.490355,
+     "patch_sha256": null,
+     "frozen_test_sha256": "48c01315fae4aaa9a26a85aaf178771ad5aa91c6fb292187fc8ecd944060879e",
+     "cast": null,
+     "blind_review": null,
+     "all_checks_passed": null
+    },
+    "W0": {
+     "run_id": "035472507c90489887d81d9baec41d4d",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.864264,
+     "patch_sha256": null,
+     "frozen_test_sha256": "e7709b2d22b5399745080bbdde6c0c63ae5ebd9f8cb4e68055366f7887175c94",
+     "cast": null,
+     "blind_review": null,
+     "all_checks_passed": null
+    }
+   }
+  },
+  {
+   "case_id": "vanx-truncate-915",
+   "title": "VanX list keeps stale rows after the array is shortened",
+   "upstream": "https://github.com/vanjs-org/van/commit/915f0e2c47cb6ca72f90e567fdc2dfc731d72df0",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-truncate-915.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "1052e235b7b84a6192fff3145b2959bf",
+     "status": "REJECTED",
+     "why": "Ended without a candidate (model_ended_without_candidate)",
+     "model_calls": 15,
+     "usd": 0.156443,
+     "patch_sha256": null,
+     "frozen_test_sha256": "815657f27903bace36612d20829004ac40231ecc888dbef140c744a3331fe706",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-truncate-915-W1.cast",
+     "blind_review": null,
+     "all_checks_passed": null
+    },
+    "W0": {
+     "run_id": "207ea339f95d401c8cb6062057a8cb18",
+     "status": "REJECTED",
+     "why": "Ended without a candidate (model_ended_without_candidate)",
+     "model_calls": 15,
+     "usd": 0.18651,
+     "patch_sha256": null,
+     "frozen_test_sha256": "0438a7f1f2f78e6dc2687b520c05bf006c646c828bcb403891c4cad3e47eda4d",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-truncate-915-W0.cast",
+     "blind_review": null,
+     "all_checks_passed": null
+    }
+   }
+  },
+  {
+   "case_id": "vanx-compact-063",
+   "title": "vanX.compact export loses each Point object's own format",
+   "upstream": "https://github.com/vanjs-org/van/commit/c9f2dd48cbb5f8b4a0b053d68cdbeec01127a7c3",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-compact-063.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "0870f6fe694a464095792e0129deed33",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 20,
+     "usd": 0.164599,
+     "patch_sha256": "543ba76271b071f94eb18604b597f567a9a4f9d50c755d97c954740a8d1c6044",
+     "frozen_test_sha256": "75cdaf7278d17caa1631af738fe91ab10ca8193ff00c158678849a4ea72ed4c5",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-compact-063-W1.cast",
+     "blind_review": "accept",
+     "all_checks_passed": true
+    },
+    "W0": {
+     "run_id": "31644545396a49e6ab4450feb89617dd",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 23,
+     "usd": 0.237261,
+     "patch_sha256": "543ba76271b071f94eb18604b597f567a9a4f9d50c755d97c954740a8d1c6044",
+     "frozen_test_sha256": "99281fe2e0a943ba3d97b9b20dae88b08998ea0feca2e745fcfa88c82863d0cc",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-compact-063-W0.cast",
+     "blind_review": "accept",
+     "all_checks_passed": true
+    }
+   }
+  },
+  {
+   "case_id": "van-setter-161-v2",
+   "title": "Rendering an SVG link fails after an HTML link with href exists",
+   "upstream": "https://github.com/vanjs-org/van/commit/52a3696e386956439130fc4041cf97ce96756316",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-van-setter-161-v2.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "152b2437226347baa47f5f1d4f939735",
+     "status": "REJECTED",
+     "why": "Model said \"Fixed\"; its own reproduction and the public tests passed; the independent check FAILED",
+     "model_calls": 16,
+     "usd": 0.147259,
+     "patch_sha256": "9c4f1d1b2208a244043c566608bdf619393dda00449d20e5107552d5899c73e4",
+     "frozen_test_sha256": "5fe63e0b2bbb052e86e32da1d98f2f7d45cbaedb91de4e9c68865cc4713a517f",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-van-setter-161-v2-W1.cast",
+     "blind_review": "accept",
+     "all_checks_passed": false
+    },
+    "W0": {
+     "run_id": "0e0fd6137d4049dc82d838c6f5c41d26",
+     "status": "REJECTED",
+     "why": "Model said \"Fixed\"; its own reproduction and the public tests passed; the independent check FAILED",
+     "model_calls": 17,
+     "usd": 0.12872,
+     "patch_sha256": "9c4f1d1b2208a244043c566608bdf619393dda00449d20e5107552d5899c73e4",
+     "frozen_test_sha256": "5fe63e0b2bbb052e86e32da1d98f2f7d45cbaedb91de4e9c68865cc4713a517f",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-van-setter-161-v2-W0.cast",
+     "blind_review": "accept",
+     "all_checks_passed": false
+    }
+   }
+  },
+  {
+   "case_id": "vanx-replace-c93",
+   "title": "Sorting a VanX task list duplicates one task and loses another",
+   "upstream": "https://github.com/vanjs-org/van/commit/c93a1531ab6b7bcb17492881966799b963c8fe22",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-replace-c93.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W0": {
+     "run_id": "5588e7f89d584ef58d699d891b2b7719",
+     "status": "REJECTED",
+     "why": "Ended without a candidate (model_ended_without_candidate)",
+     "model_calls": 5,
+     "usd": 0.071339,
+     "patch_sha256": null,
+     "frozen_test_sha256": null,
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-replace-c93-W0.cast",
+     "blind_review": null,
+     "all_checks_passed": null
+    },
+    "W1": {
+     "run_id": "2616eee18c28409e86ff6b9091777ce3",
+     "status": "REJECTED",
+     "why": "Model said \"Fixed\"; its own reproduction and the public tests passed; the independent check FAILED",
+     "model_calls": 17,
+     "usd": 0.23906,
+     "patch_sha256": "d83a9428d3232d7e3ffdf22c050030bea49fb2f5d53af89abe8390e8059d068d",
+     "frozen_test_sha256": "0984e91518d77b9815407e658ad958777a1cd876adfed22d1638328705e413ee",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-replace-c93-W1.cast",
+     "blind_review": "accept",
+     "all_checks_passed": false
+    }
+   }
+  },
+  {
+   "case_id": "vanx-funcfield-5d9",
+   "title": "A function stored in a VanX reactive object cannot be called",
+   "upstream": "https://github.com/vanjs-org/van/commit/5d97cffc31b912700ef1ce7dfe98fa42c68b9e9b",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-funcfield-5d9.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "0a6247e8d11b452288dcb5cdd943c339",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 17,
+     "usd": 0.160611,
+     "patch_sha256": "403de31d5e805c0873c1d76b580fd6c1fcfd7e3f3adc0e7a340eb98d59a0e676",
+     "frozen_test_sha256": "f6801997c8af3fe7fb1cd47bd905d965134076fabd9351687e1697bf95ae53d8",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-funcfield-5d9-W1.cast",
+     "blind_review": "accept",
+     "all_checks_passed": true
+    },
+    "W0": {
+     "run_id": "686c1f47a77e48aaa220fe98e5dfbb27",
+     "status": "REJECTED",
+     "why": "Model said \"Fixed\"; its own reproduction and the public tests passed; the independent check FAILED",
+     "model_calls": 25,
+     "usd": 0.23985,
+     "patch_sha256": "3bd86beeabf89341b27344034928c0833e56ad810960231e41d73a6588dddfec",
+     "frozen_test_sha256": "f5c7ecbe38fdbd35c3dadbf09f148e8dcf0c8a7fb58d1f4e9df90662862eaf4c",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-funcfield-5d9-W0.cast",
+     "blind_review": "accept",
+     "all_checks_passed": false
+    }
+   }
+  },
+  {
+   "case_id": "vanx-raw-356",
+   "title": "vanX.raw breaks on reactive arrays and class instances",
+   "upstream": "https://github.com/vanjs-org/van/commit/17d5ce5eae691f9839b68454154d03a293a51368",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-raw-356.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "556a5b2191974847b344fdd2024c8e31",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 19,
+     "usd": 0.222273,
+     "patch_sha256": "9bd72eedecbc1b2cf43f93a2298c865ea3fbdd038d3e857b79bdf3f2a8ff9df0",
+     "frozen_test_sha256": "fe101594d6d56498d3a02e42130cf7a9013950034cef251931ef7ea0e20cad25",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-raw-356-W1.cast",
+     "blind_review": "accept",
+     "all_checks_passed": true
+    },
+    "W0": {
+     "run_id": "96cf273cb9fe4600a4ce4e3347bc06d3",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 17,
+     "usd": 0.173077,
+     "patch_sha256": "8c97ad32ef124b41cccd22f0ec27bb8476841e927cc94b79d2c87d79cce906e8",
+     "frozen_test_sha256": "b0708e2f7d9f0104da0ad19a64cdd89cead3029c36e09cabbd83cb33a09dae86",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-raw-356-W0.cast",
+     "blind_review": "accept",
+     "all_checks_passed": true
+    }
+   }
+  },
+  {
+   "case_id": "vanx-poplen-fc3",
+   "title": "Reactive array length does not update after pop",
+   "upstream": "https://github.com/vanjs-org/van/commit/fc3ee4c4bdab9f0a065ff6d897c53f2fa8f85eeb",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-poplen-fc3.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "bc11894cbe704ae780d79389e6e30beb",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 21,
+     "usd": 0.231563,
+     "patch_sha256": "063b8a8d60fbaaa18cea1e53e95e2c3707725fa8f0af6b027f038508aa3a74b0",
+     "frozen_test_sha256": "58e0ba87a2591e1643712b2ad65d63d7d8bf689ffe304e3c905a5f8629cac3ee",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-poplen-fc3-W1.cast",
+     "blind_review": null,
+     "all_checks_passed": true
+    },
+    "W0": {
+     "run_id": "782ae7ce66c54adc85008f6e5abfd330",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.279203,
+     "patch_sha256": null,
+     "frozen_test_sha256": "a0d78e0cfbc414c7ef2a02b4c16d0c654bd6a7787f89bea15943c929708cb745",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-poplen-fc3-W0.cast",
+     "blind_review": null,
+     "all_checks_passed": null
+    }
+   }
+  },
+  {
+   "case_id": "vanx-replacelen-acb",
+   "title": "vanX.replace with a shorter array leaves a stale length",
+   "upstream": "https://github.com/vanjs-org/van/commit/acb8ba839a28b53ef0e4cf9be0cf086df0a56ca6",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-replacelen-acb.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "7601900fcc524bf0b2fc2e66515c2971",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.164432,
+     "patch_sha256": null,
+     "frozen_test_sha256": "cb45aaa2c097016595130f4cbaf9cb9031f32171021c480cd2185cb858c4dca1",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-replacelen-acb-W1.cast",
+     "blind_review": null,
+     "all_checks_passed": null
+    },
+    "W0": {
+     "run_id": "894f99997a2c413bacdf1f16ffb47dca",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.271581,
+     "patch_sha256": null,
+     "frozen_test_sha256": "2689b7a20beb89f988357179cf57878464dec2af80fdf4f2486099769bc490b7",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-replacelen-acb-W0.cast",
+     "blind_review": null,
+     "all_checks_passed": null
+    }
+   }
+  },
+  {
+   "case_id": "vanx-proxyarg-1c5",
+   "title": "Reading length or array methods on a reactive object throws",
+   "upstream": "https://github.com/vanjs-org/van/commit/1c580f0a6598ddcff62b005e742a7d5e9fe4eaf7",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-vanx-proxyarg-1c5.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "c8111b78753a461381c3ea6ae253790c",
+     "status": "REJECTED",
+     "why": "Stopped at the 25-turn cap without a candidate",
+     "model_calls": 25,
+     "usd": 0.224289,
+     "patch_sha256": null,
+     "frozen_test_sha256": "360c5204340bd99b38ba7af64b050e46bc57a84fb66c4848813f9d88a40a6754",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-proxyarg-1c5-W1.cast",
+     "blind_review": null,
+     "all_checks_passed": null
+    },
+    "W0": {
+     "run_id": "fba2d2f0e4d841f79546c295fb55cc48",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 17,
+     "usd": 0.131401,
+     "patch_sha256": "3490d629594fa7d023d36bd25e06ed5f626d983d3bc7e34eb8a98390ebc982d0",
+     "frozen_test_sha256": "cf597f207ba89755488d9b23f4a1db19f0f40c8fa7403d71069edc423b5d8d86",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-vanx-proxyarg-1c5-W0.cast",
+     "blind_review": null,
+     "all_checks_passed": true
+    }
+   }
+  },
+  {
+   "case_id": "van-propgc-84f",
+   "title": "Function-valued property bindings keep recomputing after their element is removed",
+   "upstream": "https://github.com/vanjs-org/van/commit/84f30ae917107c9d4b4c38b9969a0d56aaac5ac8",
+   "source": "upstream fix",
+   "bug_video": "evidence/extension-2026-11-02/bug-video-van-propgc-84f.mp4",
+   "batch": "extension 2 Nov 2026",
+   "runs": {
+    "W1": {
+     "run_id": "8e7a8ba5e1174ec38d27db153838b930",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 16,
+     "usd": 0.175699,
+     "patch_sha256": "9e926686787187a791880807558e9819d1ae28f925e59c7c67fd48d173174263",
+     "frozen_test_sha256": "9f690c8bc34f02209ec37c6249b1f09def465530c76c0d74610dcb19c93bb9a6",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-van-propgc-84f-W1.cast",
+     "blind_review": null,
+     "all_checks_passed": true
+    },
+    "W0": {
+     "run_id": "d8dd072a9f41467eb72d1b4bcda5ae1d",
+     "status": "VERIFIED",
+     "why": "Frozen reproduction, public regressions and independent check all passed",
+     "model_calls": 15,
+     "usd": 0.207113,
+     "patch_sha256": "67b2c794aa90b408cae7f83f93a32290b54fab7637751a0a35f89aec708b8b25",
+     "frozen_test_sha256": "7a20fe043ea94eab8d9e27588defc039b812a3d1e0b6246f2eefea6874073062",
+     "cast": "evidence/extension-2026-11-02/live-runs/live-run-van-propgc-84f-W0.cast",
+     "blind_review": null,
+     "all_checks_passed": true
+    }
+   }
+  }
+ ]
+}

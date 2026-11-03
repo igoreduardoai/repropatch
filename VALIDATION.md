@@ -96,16 +96,37 @@ the `vanx-funcfield-5d9` W0 patch handles direct assignment of a function field 
 100 calls (in the same per-call log). Ledger total for 2 Nov: USD 2.473885, 243 calls,
 14 runs (12 counted), under the USD 8 batch cap.
 
+### Extension batch 4 — 2 November 2026, night (same box; round cap USD 4.00)
+
+Four more real VanJS bugs, built and accepted the same way (signed case gate; bug videos recorded
+by us on the pre-fix code; independent checks adapted from the upstream tests of each fix). A fifth
+candidate (upstream 5d4b781, an ES-module strict-mode `length` write) was dropped before any model
+call because its independent check passed on the pre-fix code in our harness, so the bug did not
+reproduce there.
+
+| Case (upstream fix) | W0 | W1 |
+|---|---|---|
+| vanx-poplen-fc3 (fc3ee4c): array `length` not updated after `pop` | REJECTED: 25-turn cap, no candidate | VERIFIED |
+| vanx-replacelen-acb (acb8ba8): `vanX.replace` with a shorter array keeps a stale `length` | REJECTED: 25-turn cap, no candidate | REJECTED: 25-turn cap, no candidate |
+| vanx-proxyarg-1c5 (1c580f0): reading `length` or array methods on a reactive object throws | VERIFIED | REJECTED: 25-turn cap, no candidate |
+| van-propgc-84f (84f30ae, committed 27 Oct 2026): function-valued property bindings keep recomputing after their element is removed | VERIFIED | VERIFIED |
+
+No false "fixed" claim in this batch: every non-verified run ended at the turn cap without a candidate.
+Metered Meta usage for these 8 runs: USD 1.685281, 169 calls (same per-call log). The batch ran with
+a ledger-enforced total cap of USD 6.47 (= 2.473885 before + 4.00). Ledger total for 2 Nov:
+USD 4.159166, 412 calls, 22 runs (20 counted).
+
 ### Combined (27 Oct pilot + 2 Nov extension, counted runs only)
 
-- **5 of 10 real bugs verified fixed** (VanJS 389, 401, vanx-compact-063, vanx-funcfield-5d9,
-  vanx-raw-356) in **20 counted real Meta runs**.
+- **8 of 14 real bugs verified fixed** (VanJS 389, 401, vanx-compact-063, vanx-funcfield-5d9,
+  vanx-raw-356, vanx-poplen-fc3, vanx-proxyarg-1c5, van-propgc-84f) in **28 counted real Meta runs**.
 - **4 times the model said "Fixed" with an incomplete patch**; all 4 failed an independent
   check and were stored as REJECTED. **No VERIFIED verdict has any failed check.**
-- 7 runs ended without a candidate (stored as REJECTED, never as fixes).
-- W1 verified 5 bugs and W0 verified 4. That is one bug on ten cases: not evidence of superiority.
-- Metered Meta usage for counted runs: USD 5.459224 (pilot 3.332222 + extension 2.127002).
-- Re-check offline: `python3 scripts/verify_evidence.py`.
+- 11 runs ended without a candidate (stored as REJECTED, never as fixes).
+- W1 verified 7 bugs and W0 verified 6. One bug on fourteen cases is not evidence of superiority.
+- Metered Meta usage for counted runs: USD 7.144505 (pilot 3.332222 + extension 3.812283).
+- Re-check offline: `python3 scripts/verify_evidence.py`. Scoreboard for the judge page:
+  `python3 scripts/build_scoreboard.py` writes `docs/scoreboard.json`.
 
 ### Blind open-weight review (2 Nov 2026)
 

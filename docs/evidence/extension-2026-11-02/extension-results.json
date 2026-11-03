@@ -2,20 +2,23 @@
   "summary": {
     "date": "2026-11-02",
     "model": "muse-wonder-1.0",
-    "runs_total": 14,
-    "runs_counted": 12,
-    "cases_counted": 6,
+    "runs_total": 22,
+    "runs_counted": 20,
+    "cases_counted": 10,
     "cases_verified": [
+      "van-propgc-84f",
       "vanx-compact-063",
       "vanx-funcfield-5d9",
+      "vanx-poplen-fc3",
+      "vanx-proxyarg-1c5",
       "vanx-raw-356"
     ],
     "false_success": 6,
     "candidates_rejected_by_independent_check": 4,
-    "runs_without_candidate": 3,
-    "metered_cost_usd_all_runs": 2.473885,
-    "metered_cost_usd_counted_runs": 2.127002,
-    "model_calls_all_runs": 243,
+    "runs_without_candidate": 7,
+    "metered_cost_usd_all_runs": 4.159166,
+    "metered_cost_usd_counted_runs": 3.812283,
+    "model_calls_all_runs": 412,
     "usage_reconciled_to_ledger": true,
     "account_invoice_verified": false,
     "pricing": "muse-wonder-1.0 standard: $4/M input, $0.20/M cached, $20/M output (dev.meta.ai/docs/pricing-rate-limits, read 2 Nov 2026)"
@@ -2272,6 +2275,1457 @@
           "input_tokens": 11968,
           "output_tokens": 102,
           "cached_tokens": 11764
+        }
+      ]
+    },
+    {
+      "run_id": "bc11894cbe704ae780d79389e6e30beb",
+      "case_id": "vanx-poplen-fc3",
+      "method": "W1",
+      "status": "VERIFIED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 21,
+      "metered_cost_usd": 0.231563,
+      "duration_ms": 132821,
+      "reason": null,
+      "frozen_test_sha256": "58e0ba87a2591e1643712b2ad65d63d7d8bf689ffe304e3c905a5f8629cac3ee",
+      "candidate_sha256": "98a0c98ac37c446216b911e56ea9342a8a2536783ce5ddde3e80dceba51ca959",
+      "patch_sha256": "063b8a8d60fbaaa18cea1e53e95e2c3707725fa8f0af6b027f038508aa3a74b0",
+      "candidate_rebuilt_from_patch": true,
+      "false_success": false,
+      "evaluation": {
+        "frozen_reproduction": {
+          "outcome": "PASS",
+          "reason": "exit_0",
+          "exit_code": 0
+        },
+        "public_regressions": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "independent": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "all_passed": true
+      },
+      "artifact_sha256": {
+        "repair.patch": "063b8a8d60fbaaa18cea1e53e95e2c3707725fa8f0af6b027f038508aa3a74b0",
+        "reproduction.frozen.cjs": "58e0ba87a2591e1643712b2ad65d63d7d8bf689ffe304e3c905a5f8629cac3ee",
+        "evaluator.log": "e7cccc96554a6728fada310c2ace567b124e4aa84f0d5d4195cace30b5853212",
+        "report.json": "e1acaee704cbcd231e1d16447f123806d0d3db06b8fdf6533d238ca100410396",
+        "attempt-summary.json": "7a3ac57e272a2f1a9bce7a4266249b6931c83c71224ad701cf03f94242e3d678"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92c06ccca212d126c46de",
+          "input_tokens": 2484,
+          "output_tokens": 60,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92c09332cddadfd2e4880",
+          "input_tokens": 2631,
+          "output_tokens": 90,
+          "cached_tokens": 2420
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92c0c2fd52cbc3a2f4686",
+          "input_tokens": 2976,
+          "output_tokens": 89,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92c111875daea4b1645e3",
+          "input_tokens": 3260,
+          "output_tokens": 43,
+          "cached_tokens": 2548
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92c14ceedf34ddafa43d1",
+          "input_tokens": 3342,
+          "output_tokens": 97,
+          "cached_tokens": 3188
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92c1e95d6fbce26f04c2f",
+          "input_tokens": 6517,
+          "output_tokens": 671,
+          "cached_tokens": 3316
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92c209576881d54ed4707",
+          "input_tokens": 7240,
+          "output_tokens": 46,
+          "cached_tokens": 6516
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92c264b47ed6fe71a41ca",
+          "input_tokens": 7476,
+          "output_tokens": 374,
+          "cached_tokens": 7156
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92c290b4039b9331b46b1",
+          "input_tokens": 7923,
+          "output_tokens": 31,
+          "cached_tokens": 2932
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92c2d6afa0c1a634d4bcc",
+          "input_tokens": 8070,
+          "output_tokens": 31,
+          "cached_tokens": 7412
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92c36f429f97298524c71",
+          "input_tokens": 8160,
+          "output_tokens": 599,
+          "cached_tokens": 8052
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92c39fd42ec55f2ec4672",
+          "input_tokens": 8838,
+          "output_tokens": 31,
+          "cached_tokens": 7796
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92c3f9a869d5bc9db44af",
+          "input_tokens": 8985,
+          "output_tokens": 31,
+          "cached_tokens": 8820
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92c48eeb8bcc10ab14e73",
+          "input_tokens": 9090,
+          "output_tokens": 385,
+          "cached_tokens": 8052
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92c4c2a846f1f29644204",
+          "input_tokens": 9510,
+          "output_tokens": 213,
+          "cached_tokens": 9076
+        },
+        {
+          "turn": 16,
+          "response_id": "resp_6ae92c50eeccb0f7cd2543a3",
+          "input_tokens": 9758,
+          "output_tokens": 61,
+          "cached_tokens": 9460
+        },
+        {
+          "turn": 17,
+          "response_id": "resp_6ae92c541a484ac78cc04ae1",
+          "input_tokens": 11284,
+          "output_tokens": 212,
+          "cached_tokens": 9716
+        },
+        {
+          "turn": 18,
+          "response_id": "resp_6ae92c5b221d1faee30240ee",
+          "input_tokens": 11531,
+          "output_tokens": 1441,
+          "cached_tokens": 11252
+        },
+        {
+          "turn": 19,
+          "response_id": "resp_6ae92c6946b20a52f73340d3",
+          "input_tokens": 13041,
+          "output_tokens": 31,
+          "cached_tokens": 11508
+        },
+        {
+          "turn": 20,
+          "response_id": "resp_6ae92c6e1378fb1bd8624c65",
+          "input_tokens": 13144,
+          "output_tokens": 35,
+          "cached_tokens": 12916
+        },
+        {
+          "turn": 21,
+          "response_id": "resp_6ae92c7eca835b46e1b24bf6",
+          "input_tokens": 13228,
+          "output_tokens": 115,
+          "cached_tokens": 8948
+        }
+      ]
+    },
+    {
+      "run_id": "782ae7ce66c54adc85008f6e5abfd330",
+      "case_id": "vanx-poplen-fc3",
+      "method": "W0",
+      "status": "REJECTED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 25,
+      "metered_cost_usd": 0.279203,
+      "duration_ms": 116954,
+      "reason": "turn_limit",
+      "frozen_test_sha256": "a0d78e0cfbc414c7ef2a02b4c16d0c654bd6a7787f89bea15943c929708cb745",
+      "candidate_sha256": null,
+      "patch_sha256": null,
+      "candidate_rebuilt_from_patch": null,
+      "false_success": false,
+      "evaluation": {},
+      "artifact_sha256": {
+        "attempt-summary.json": "272c22e6e9f57512c387d783e46910fe3e9d71687bc1410102a8d6214e31287b"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92c89f0b6a23cfae443f2",
+          "input_tokens": 2437,
+          "output_tokens": 62,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92c8d1a96574294264d66",
+          "input_tokens": 2586,
+          "output_tokens": 90,
+          "cached_tokens": 2420
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92c91df2b8ef04fab411f",
+          "input_tokens": 2931,
+          "output_tokens": 91,
+          "cached_tokens": 2548
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92c94004a4b1d4acb44f2",
+          "input_tokens": 4672,
+          "output_tokens": 43,
+          "cached_tokens": 2804
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92c96c4bc8197a0054f28",
+          "input_tokens": 4754,
+          "output_tokens": 48,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92ca887e520f4805d4dd6",
+          "input_tokens": 6267,
+          "output_tokens": 1422,
+          "cached_tokens": 4596
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92caa350a006e60824482",
+          "input_tokens": 7741,
+          "output_tokens": 46,
+          "cached_tokens": 6260
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92cad22c85f86f3b64f78",
+          "input_tokens": 7977,
+          "output_tokens": 93,
+          "cached_tokens": 7668
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92cb1000feef6348f4a12",
+          "input_tokens": 8300,
+          "output_tokens": 331,
+          "cached_tokens": 4724
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92cb5f7b739f13f4342e1",
+          "input_tokens": 8709,
+          "output_tokens": 473,
+          "cached_tokens": 8180
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92cb722c1b92896044007",
+          "input_tokens": 9257,
+          "output_tokens": 31,
+          "cached_tokens": 8692
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92cbb5e300fa293c744a5",
+          "input_tokens": 9404,
+          "output_tokens": 31,
+          "cached_tokens": 7924
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92cc2af3279e4e9d24037",
+          "input_tokens": 9494,
+          "output_tokens": 433,
+          "cached_tokens": 9332
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92cc51bafc9910da842e1",
+          "input_tokens": 10003,
+          "output_tokens": 31,
+          "cached_tokens": 9460
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92ccd49242c2b44ec45be",
+          "input_tokens": 10122,
+          "output_tokens": 344,
+          "cached_tokens": 9204
+        },
+        {
+          "turn": 16,
+          "response_id": "resp_6ae92ccf79260fe2750e4c24",
+          "input_tokens": 10542,
+          "output_tokens": 31,
+          "cached_tokens": 10100
+        },
+        {
+          "turn": 17,
+          "response_id": "resp_6ae92cd70602e04f80684d0d",
+          "input_tokens": 10659,
+          "output_tokens": 201,
+          "cached_tokens": 10484
+        },
+        {
+          "turn": 18,
+          "response_id": "resp_6ae92cd90d3cc700ac3e42b5",
+          "input_tokens": 10939,
+          "output_tokens": 31,
+          "cached_tokens": 9972
+        },
+        {
+          "turn": 19,
+          "response_id": "resp_6ae92cdef8448f19804c40cd",
+          "input_tokens": 11086,
+          "output_tokens": 31,
+          "cached_tokens": 10868
+        },
+        {
+          "turn": 20,
+          "response_id": "resp_6ae92ce55fa6b3b200fc4cac",
+          "input_tokens": 11191,
+          "output_tokens": 296,
+          "cached_tokens": 10612
+        },
+        {
+          "turn": 21,
+          "response_id": "resp_6ae92ce7caefc0b7076b4ceb",
+          "input_tokens": 11522,
+          "output_tokens": 264,
+          "cached_tokens": 10996
+        },
+        {
+          "turn": 22,
+          "response_id": "resp_6ae92cea3a354f2b68c94513",
+          "input_tokens": 11821,
+          "output_tokens": 63,
+          "cached_tokens": 11124
+        },
+        {
+          "turn": 23,
+          "response_id": "resp_6ae92ceddaf5fdfd1e05440f",
+          "input_tokens": 13349,
+          "output_tokens": 90,
+          "cached_tokens": 11508
+        },
+        {
+          "turn": 24,
+          "response_id": "resp_6ae92cf337bed2491c56432d",
+          "input_tokens": 13471,
+          "output_tokens": 1466,
+          "cached_tokens": 11764
+        },
+        {
+          "turn": 25,
+          "response_id": "resp_6ae92cf7fb16584b916c4d1a",
+          "input_tokens": 15013,
+          "output_tokens": 31,
+          "cached_tokens": 13300
+        }
+      ]
+    },
+    {
+      "run_id": "7601900fcc524bf0b2fc2e66515c2971",
+      "case_id": "vanx-replacelen-acb",
+      "method": "W1",
+      "status": "REJECTED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 25,
+      "metered_cost_usd": 0.164432,
+      "duration_ms": 145248,
+      "reason": "turn_limit",
+      "frozen_test_sha256": "cb45aaa2c097016595130f4cbaf9cb9031f32171021c480cd2185cb858c4dca1",
+      "candidate_sha256": null,
+      "patch_sha256": null,
+      "candidate_rebuilt_from_patch": null,
+      "false_success": false,
+      "evaluation": {},
+      "artifact_sha256": {
+        "attempt-summary.json": "23eb485a748d61778b51216512e6e74f2a92368c1759d08ce89fb08025093f55"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92cff9c924411b2f44ede",
+          "input_tokens": 2107,
+          "output_tokens": 66,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92d03bee74629f70b4227",
+          "input_tokens": 2260,
+          "output_tokens": 90,
+          "cached_tokens": 2036
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92d07dbcb29ff3fe044cd",
+          "input_tokens": 2634,
+          "output_tokens": 88,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92d0aeebbfce98e78431d",
+          "input_tokens": 2810,
+          "output_tokens": 97,
+          "cached_tokens": 2548
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92d1288f9e2281cbc467c",
+          "input_tokens": 4523,
+          "output_tokens": 524,
+          "cached_tokens": 2804
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92d146f8d3cbfe6f64427",
+          "input_tokens": 5121,
+          "output_tokens": 31,
+          "cached_tokens": 4468
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92d181780b68316c04c8e",
+          "input_tokens": 5266,
+          "output_tokens": 31,
+          "cached_tokens": 2164
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92d20e634f279cc3e4be5",
+          "input_tokens": 5356,
+          "output_tokens": 372,
+          "cached_tokens": 5236
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92d23035aab2dc1004538",
+          "input_tokens": 5801,
+          "output_tokens": 31,
+          "cached_tokens": 5236
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92d26ff0218639db24385",
+          "input_tokens": 5946,
+          "output_tokens": 31,
+          "cached_tokens": 5748
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92d2c9103e493a73b49a1",
+          "input_tokens": 6036,
+          "output_tokens": 164,
+          "cached_tokens": 5876
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92d301de0d216232348a6",
+          "input_tokens": 6279,
+          "output_tokens": 31,
+          "cached_tokens": 6004
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92d536219150c03a44447",
+          "input_tokens": 6398,
+          "output_tokens": 168,
+          "cached_tokens": 5108
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92d57756b21410e5f40e4",
+          "input_tokens": 6639,
+          "output_tokens": 31,
+          "cached_tokens": 6388
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92d5e6a39152cb739448d",
+          "input_tokens": 6758,
+          "output_tokens": 31,
+          "cached_tokens": 6516
+        },
+        {
+          "turn": 16,
+          "response_id": "resp_6ae92d67893c74720c4245cb",
+          "input_tokens": 6875,
+          "output_tokens": 309,
+          "cached_tokens": 6260
+        },
+        {
+          "turn": 17,
+          "response_id": "resp_6ae92d69e559547977e54767",
+          "input_tokens": 7265,
+          "output_tokens": 31,
+          "cached_tokens": 6772
+        },
+        {
+          "turn": 18,
+          "response_id": "resp_6ae92d6d54d4a9e2f355489d",
+          "input_tokens": 7452,
+          "output_tokens": 31,
+          "cached_tokens": 7156
+        },
+        {
+          "turn": 19,
+          "response_id": "resp_6ae92d75cca3400e76a14f62",
+          "input_tokens": 7542,
+          "output_tokens": 194,
+          "cached_tokens": 7412
+        },
+        {
+          "turn": 20,
+          "response_id": "resp_6ae92d781be1f39ce0dc429a",
+          "input_tokens": 7810,
+          "output_tokens": 31,
+          "cached_tokens": 7540
+        },
+        {
+          "turn": 21,
+          "response_id": "resp_6ae92d7b242577a5b82249d5",
+          "input_tokens": 7978,
+          "output_tokens": 31,
+          "cached_tokens": 7796
+        },
+        {
+          "turn": 22,
+          "response_id": "resp_6ae92d808ee7f27a6e4d4d81",
+          "input_tokens": 8078,
+          "output_tokens": 148,
+          "cached_tokens": 7924
+        },
+        {
+          "turn": 23,
+          "response_id": "resp_6ae92d8396769114d0ea41cc",
+          "input_tokens": 8261,
+          "output_tokens": 159,
+          "cached_tokens": 8052
+        },
+        {
+          "turn": 24,
+          "response_id": "resp_6ae92d86738b1d8d6bbc4b67",
+          "input_tokens": 8455,
+          "output_tokens": 63,
+          "cached_tokens": 6644
+        },
+        {
+          "turn": 25,
+          "response_id": "resp_6ae92d8a62c7a3f4dc2b4827",
+          "input_tokens": 9968,
+          "output_tokens": 198,
+          "cached_tokens": 8436
+        }
+      ]
+    },
+    {
+      "run_id": "894f99997a2c413bacdf1f16ffb47dca",
+      "case_id": "vanx-replacelen-acb",
+      "method": "W0",
+      "status": "REJECTED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 25,
+      "metered_cost_usd": 0.271581,
+      "duration_ms": 171995,
+      "reason": "turn_limit",
+      "frozen_test_sha256": "2689b7a20beb89f988357179cf57878464dec2af80fdf4f2486099769bc490b7",
+      "candidate_sha256": null,
+      "patch_sha256": null,
+      "candidate_rebuilt_from_patch": null,
+      "false_success": false,
+      "evaluation": {},
+      "artifact_sha256": {
+        "attempt-summary.json": "a7b50c0564eafedef46ec5463dc34993b41fc5d3cf1e467bfb56da82a1c99739"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92d91d81089cb2813451f",
+          "input_tokens": 2060,
+          "output_tokens": 64,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92d944aae3c2b43284d0d",
+          "input_tokens": 2211,
+          "output_tokens": 90,
+          "cached_tokens": 2036
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92d96e025a2e8b0544594",
+          "input_tokens": 2585,
+          "output_tokens": 43,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92d99d280399bdafb49be",
+          "input_tokens": 2667,
+          "output_tokens": 48,
+          "cached_tokens": 2164
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92d9fcb69ab796e274421",
+          "input_tokens": 4165,
+          "output_tokens": 327,
+          "cached_tokens": 2548
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92da1434ca00c9f0f45a7",
+          "input_tokens": 4544,
+          "output_tokens": 46,
+          "cached_tokens": 2548
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92da6405713cf8ec34f16",
+          "input_tokens": 4759,
+          "output_tokens": 274,
+          "cached_tokens": 4084
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92da8be72d6002f3e40e3",
+          "input_tokens": 5111,
+          "output_tokens": 31,
+          "cached_tokens": 4724
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92dac5719351e38a94dd7",
+          "input_tokens": 5256,
+          "output_tokens": 31,
+          "cached_tokens": 4468
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92db5fb25f61949764a2b",
+          "input_tokens": 5346,
+          "output_tokens": 567,
+          "cached_tokens": 5236
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92db85eeda369bb3f4ecd",
+          "input_tokens": 5987,
+          "output_tokens": 31,
+          "cached_tokens": 5236
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92ddc784c24bf5dd34359",
+          "input_tokens": 6106,
+          "output_tokens": 45,
+          "cached_tokens": 5108
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92e014c2797795d7f4626",
+          "input_tokens": 6237,
+          "output_tokens": 399,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92e0391751b97f19e42aa",
+          "input_tokens": 6713,
+          "output_tokens": 31,
+          "cached_tokens": 6132
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92e0b40ac12beefce4dfd",
+          "input_tokens": 6803,
+          "output_tokens": 394,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 16,
+          "response_id": "resp_6ae92e0ece9cfa22352041dc",
+          "input_tokens": 7269,
+          "output_tokens": 31,
+          "cached_tokens": 6772
+        },
+        {
+          "turn": 17,
+          "response_id": "resp_6ae92e15ed95a7534a784f98",
+          "input_tokens": 7367,
+          "output_tokens": 185,
+          "cached_tokens": 6644
+        },
+        {
+          "turn": 18,
+          "response_id": "resp_6ae92e19a085e59a8e7b4933",
+          "input_tokens": 7587,
+          "output_tokens": 137,
+          "cached_tokens": 7156
+        },
+        {
+          "turn": 19,
+          "response_id": "resp_6ae92e1c781f42b0ee78499a",
+          "input_tokens": 7759,
+          "output_tokens": 167,
+          "cached_tokens": 7284
+        },
+        {
+          "turn": 20,
+          "response_id": "resp_6ae92e2094a04ce7f1424870",
+          "input_tokens": 7957,
+          "output_tokens": 172,
+          "cached_tokens": 7540
+        },
+        {
+          "turn": 21,
+          "response_id": "resp_6ae92e22f93faf60f2f04435",
+          "input_tokens": 8164,
+          "output_tokens": 90,
+          "cached_tokens": 7924
+        },
+        {
+          "turn": 22,
+          "response_id": "resp_6ae92e261a3c547b6acf4f97",
+          "input_tokens": 8292,
+          "output_tokens": 92,
+          "cached_tokens": 8052
+        },
+        {
+          "turn": 23,
+          "response_id": "resp_6ae92e2b282803f8a6354ed5",
+          "input_tokens": 9834,
+          "output_tokens": 1381,
+          "cached_tokens": 8180
+        },
+        {
+          "turn": 24,
+          "response_id": "resp_6ae92e2eedf4ce1f5b0a4071",
+          "input_tokens": 11289,
+          "output_tokens": 31,
+          "cached_tokens": 7668
+        },
+        {
+          "turn": 25,
+          "response_id": "resp_6ae92e36940ff2a9f4c04ee8",
+          "input_tokens": 11434,
+          "output_tokens": 403,
+          "cached_tokens": 9716
+        }
+      ]
+    },
+    {
+      "run_id": "c8111b78753a461381c3ea6ae253790c",
+      "case_id": "vanx-proxyarg-1c5",
+      "method": "W1",
+      "status": "REJECTED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 25,
+      "metered_cost_usd": 0.224289,
+      "duration_ms": 124161,
+      "reason": "turn_limit",
+      "frozen_test_sha256": "360c5204340bd99b38ba7af64b050e46bc57a84fb66c4848813f9d88a40a6754",
+      "candidate_sha256": null,
+      "patch_sha256": null,
+      "candidate_rebuilt_from_patch": null,
+      "false_success": false,
+      "evaluation": {},
+      "artifact_sha256": {
+        "attempt-summary.json": "a4efc6be919b69e668f2f07b0f6374c02823544783685c769399be58cc155860"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92e3dfccd70cebe404f30",
+          "input_tokens": 2110,
+          "output_tokens": 57,
+          "cached_tokens": 1268
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92e41afd56c28a4fb47ff",
+          "input_tokens": 2254,
+          "output_tokens": 90,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92e45edb697c58e664210",
+          "input_tokens": 2685,
+          "output_tokens": 77,
+          "cached_tokens": 2164
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92e4a73be3fc18a2c430c",
+          "input_tokens": 2960,
+          "output_tokens": 48,
+          "cached_tokens": 2676
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92e4c9e09b2f6613f45c4",
+          "input_tokens": 4577,
+          "output_tokens": 123,
+          "cached_tokens": 2932
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92e4fcba58d5965d54436",
+          "input_tokens": 4752,
+          "output_tokens": 46,
+          "cached_tokens": 4468
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92e53eafa754d0e984020",
+          "input_tokens": 4949,
+          "output_tokens": 150,
+          "cached_tokens": 4724
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92e563070f3f8c5b7434a",
+          "input_tokens": 5175,
+          "output_tokens": 31,
+          "cached_tokens": 4852
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92e5a32b62f359a6e42ac",
+          "input_tokens": 5329,
+          "output_tokens": 31,
+          "cached_tokens": 5108
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92e6653dc4403dc8a4b34",
+          "input_tokens": 5419,
+          "output_tokens": 735,
+          "cached_tokens": 2036
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92e6b1f264b2046d74934",
+          "input_tokens": 6230,
+          "output_tokens": 31,
+          "cached_tokens": 5236
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92e749627e5d4e04e4a96",
+          "input_tokens": 6349,
+          "output_tokens": 31,
+          "cached_tokens": 5364
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92e823d600a6daaa4435f",
+          "input_tokens": 6466,
+          "output_tokens": 752,
+          "cached_tokens": 6132
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92e85ca272434e3b24706",
+          "input_tokens": 7299,
+          "output_tokens": 207,
+          "cached_tokens": 6260
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92e88947861fa0e674035",
+          "input_tokens": 7588,
+          "output_tokens": 31,
+          "cached_tokens": 7284
+        },
+        {
+          "turn": 16,
+          "response_id": "resp_6ae92e8ee5079550721c4fe3",
+          "input_tokens": 7777,
+          "output_tokens": 225,
+          "cached_tokens": 7540
+        },
+        {
+          "turn": 17,
+          "response_id": "resp_6ae92e91f759c30ef2b14f98",
+          "input_tokens": 8079,
+          "output_tokens": 31,
+          "cached_tokens": 6388
+        },
+        {
+          "turn": 18,
+          "response_id": "resp_6ae92e96de2e801bc9de4c5a",
+          "input_tokens": 8284,
+          "output_tokens": 31,
+          "cached_tokens": 7668
+        },
+        {
+          "turn": 19,
+          "response_id": "resp_6ae92e9bcdfaf00fc61d4110",
+          "input_tokens": 8387,
+          "output_tokens": 171,
+          "cached_tokens": 8052
+        },
+        {
+          "turn": 20,
+          "response_id": "resp_6ae92e9ecb6135dab6734615",
+          "input_tokens": 8589,
+          "output_tokens": 168,
+          "cached_tokens": 8180
+        },
+        {
+          "turn": 21,
+          "response_id": "resp_6ae92ea1f26b8673176349a9",
+          "input_tokens": 8792,
+          "output_tokens": 161,
+          "cached_tokens": 8308
+        },
+        {
+          "turn": 22,
+          "response_id": "resp_6ae92ea6efe0688fcbd64e07",
+          "input_tokens": 8989,
+          "output_tokens": 66,
+          "cached_tokens": 8564
+        },
+        {
+          "turn": 23,
+          "response_id": "resp_6ae92eac7c1367804d8b4271",
+          "input_tokens": 10624,
+          "output_tokens": 1488,
+          "cached_tokens": 8692
+        },
+        {
+          "turn": 24,
+          "response_id": "resp_6ae92eaf63aa460e4ecd4b1f",
+          "input_tokens": 12186,
+          "output_tokens": 31,
+          "cached_tokens": 10612
+        },
+        {
+          "turn": 25,
+          "response_id": "resp_6ae92eb4ad2c6c7305fe48d3",
+          "input_tokens": 12289,
+          "output_tokens": 31,
+          "cached_tokens": 8948
+        }
+      ]
+    },
+    {
+      "run_id": "fba2d2f0e4d841f79546c295fb55cc48",
+      "case_id": "vanx-proxyarg-1c5",
+      "method": "W0",
+      "status": "VERIFIED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 17,
+      "metered_cost_usd": 0.131401,
+      "duration_ms": 68965,
+      "reason": null,
+      "frozen_test_sha256": "cf597f207ba89755488d9b23f4a1db19f0f40c8fa7403d71069edc423b5d8d86",
+      "candidate_sha256": "744644339dc75df5d331052cacba8babda8cae3729d7c8bf7c7faece42dfcb24",
+      "patch_sha256": "3490d629594fa7d023d36bd25e06ed5f626d983d3bc7e34eb8a98390ebc982d0",
+      "candidate_rebuilt_from_patch": true,
+      "false_success": false,
+      "evaluation": {
+        "frozen_reproduction": {
+          "outcome": "PASS",
+          "reason": "exit_0",
+          "exit_code": 0
+        },
+        "public_regressions": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "independent": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "all_passed": true
+      },
+      "artifact_sha256": {
+        "repair.patch": "3490d629594fa7d023d36bd25e06ed5f626d983d3bc7e34eb8a98390ebc982d0",
+        "reproduction.frozen.cjs": "cf597f207ba89755488d9b23f4a1db19f0f40c8fa7403d71069edc423b5d8d86",
+        "evaluator.log": "e7cccc96554a6728fada310c2ace567b124e4aa84f0d5d4195cace30b5853212",
+        "report.json": "b9566390f3be64107abcc86d4ed58fe679c95ed4787b54c39f9e2eba335b758a",
+        "attempt-summary.json": "890ff11be1907fcdf8c54808591bddfef06e7179b9c2d7bbb218ad50be5e26ea"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92ebb3187238bb6e54a41",
+          "input_tokens": 2063,
+          "output_tokens": 59,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92ebf3d3d33bb0c3d44db",
+          "input_tokens": 2209,
+          "output_tokens": 90,
+          "cached_tokens": 1140
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92ec1bae5d39a5a8e460f",
+          "input_tokens": 2640,
+          "output_tokens": 42,
+          "cached_tokens": 2036
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92ec36e7bced276d64c00",
+          "input_tokens": 2719,
+          "output_tokens": 43,
+          "cached_tokens": 2548
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92ec7f5e677a005314cef",
+          "input_tokens": 2801,
+          "output_tokens": 48,
+          "cached_tokens": 2164
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92eca96ab405750ce4edc",
+          "input_tokens": 4418,
+          "output_tokens": 137,
+          "cached_tokens": 2676
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92ecc2a8248a1c5bf4153",
+          "input_tokens": 4607,
+          "output_tokens": 46,
+          "cached_tokens": 2676
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92ed0244b71432afd40d9",
+          "input_tokens": 4804,
+          "output_tokens": 50,
+          "cached_tokens": 4340
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92ed57e5cf486c0634572",
+          "input_tokens": 5016,
+          "output_tokens": 221,
+          "cached_tokens": 4724
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92ed7912c6963007e486f",
+          "input_tokens": 5317,
+          "output_tokens": 31,
+          "cached_tokens": 4596
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92edce378cc3584824000",
+          "input_tokens": 5471,
+          "output_tokens": 31,
+          "cached_tokens": 4980
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92ee102c18e86cfa04aa5",
+          "input_tokens": 5577,
+          "output_tokens": 150,
+          "cached_tokens": 5236
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92ee46c76c3eddb674e41",
+          "input_tokens": 5762,
+          "output_tokens": 154,
+          "cached_tokens": 5492
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92eea8be9a835902a4ee4",
+          "input_tokens": 5951,
+          "output_tokens": 1512,
+          "cached_tokens": 5364
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92eed791e377f915c499c",
+          "input_tokens": 7537,
+          "output_tokens": 31,
+          "cached_tokens": 5748
+        },
+        {
+          "turn": 16,
+          "response_id": "resp_6ae92ef1f71792ef8f4c4cc1",
+          "input_tokens": 7640,
+          "output_tokens": 35,
+          "cached_tokens": 7412
+        },
+        {
+          "turn": 17,
+          "response_id": "resp_6ae92ef6acc57733d086423e",
+          "input_tokens": 7724,
+          "output_tokens": 170,
+          "cached_tokens": 5876
+        }
+      ]
+    },
+    {
+      "run_id": "8e7a8ba5e1174ec38d27db153838b930",
+      "case_id": "van-propgc-84f",
+      "method": "W1",
+      "status": "VERIFIED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 16,
+      "metered_cost_usd": 0.175699,
+      "duration_ms": 101511,
+      "reason": null,
+      "frozen_test_sha256": "9f690c8bc34f02209ec37c6249b1f09def465530c76c0d74610dcb19c93bb9a6",
+      "candidate_sha256": "b96db2b5aa40228d0e417e0cda22aadc8f4190e82fbe393a047033bbbfbca4f4",
+      "patch_sha256": "9e926686787187a791880807558e9819d1ae28f925e59c7c67fd48d173174263",
+      "candidate_rebuilt_from_patch": true,
+      "false_success": false,
+      "evaluation": {
+        "frozen_reproduction": {
+          "outcome": "PASS",
+          "reason": "exit_0",
+          "exit_code": 0
+        },
+        "public_regressions": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "independent": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "all_passed": true
+      },
+      "artifact_sha256": {
+        "repair.patch": "9e926686787187a791880807558e9819d1ae28f925e59c7c67fd48d173174263",
+        "reproduction.frozen.cjs": "9f690c8bc34f02209ec37c6249b1f09def465530c76c0d74610dcb19c93bb9a6",
+        "evaluator.log": "e7cccc96554a6728fada310c2ace567b124e4aa84f0d5d4195cace30b5853212",
+        "report.json": "301aeb75e95b54a219bb43fdc21e93269b0accd7a7b0d6ff161d9a4e31864b07",
+        "attempt-summary.json": "36d6d30ef8f69ba52acc67a42ca4eb47613b107e1b8ac91854c1c4d673a54616"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92f09bf5aa6afc66b416e",
+          "input_tokens": 2858,
+          "output_tokens": 73,
+          "cached_tokens": 1268
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92f0d39aab5b1a8894d6f",
+          "input_tokens": 3006,
+          "output_tokens": 90,
+          "cached_tokens": 2804
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92f1c36bb81ae76654a78",
+          "input_tokens": 3411,
+          "output_tokens": 46,
+          "cached_tokens": 1268
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92f25e8670b5026ea4085",
+          "input_tokens": 5099,
+          "output_tokens": 582,
+          "cached_tokens": 2932
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92f286ed85a9458614cfe",
+          "input_tokens": 5733,
+          "output_tokens": 46,
+          "cached_tokens": 3316
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92f2d323a6c694687419f",
+          "input_tokens": 6000,
+          "output_tokens": 202,
+          "cached_tokens": 5620
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92f2f5bc373c4fc2b4bb1",
+          "input_tokens": 6281,
+          "output_tokens": 31,
+          "cached_tokens": 5876
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92f358403c1af3038459b",
+          "input_tokens": 6411,
+          "output_tokens": 112,
+          "cached_tokens": 4980
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92f3df6880f950fed495a",
+          "input_tokens": 6597,
+          "output_tokens": 289,
+          "cached_tokens": 6388
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92f40e4e317dacb284fb2",
+          "input_tokens": 6917,
+          "output_tokens": 173,
+          "cached_tokens": 6260
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92f4322f29e83e30b44e8",
+          "input_tokens": 7123,
+          "output_tokens": 198,
+          "cached_tokens": 6900
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92f469c4618cb51c34c5b",
+          "input_tokens": 7354,
+          "output_tokens": 96,
+          "cached_tokens": 6516
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92f4d9b0a5a1a44374a62",
+          "input_tokens": 9092,
+          "output_tokens": 1598,
+          "cached_tokens": 7284
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92f51e88c4663410a4a0f",
+          "input_tokens": 10764,
+          "output_tokens": 93,
+          "cached_tokens": 9076
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92f557679940ce32b4784",
+          "input_tokens": 10929,
+          "output_tokens": 35,
+          "cached_tokens": 7028
+        },
+        {
+          "turn": 16,
+          "response_id": "resp_6ae92f5b533b99b60ff2484c",
+          "input_tokens": 11013,
+          "output_tokens": 196,
+          "cached_tokens": 10868
+        }
+      ]
+    },
+    {
+      "run_id": "d8dd072a9f41467eb72d1b4bcda5ae1d",
+      "case_id": "van-propgc-84f",
+      "method": "W0",
+      "status": "VERIFIED",
+      "counted": true,
+      "exclusion_reason": null,
+      "model_calls": 15,
+      "metered_cost_usd": 0.207113,
+      "duration_ms": 80730,
+      "reason": null,
+      "frozen_test_sha256": "7a20fe043ea94eab8d9e27588defc039b812a3d1e0b6246f2eefea6874073062",
+      "candidate_sha256": "9e4b33724a51ebf8004ac76d816baf02379a8530ec51372ae25b1b90a0d41e6c",
+      "patch_sha256": "67b2c794aa90b408cae7f83f93a32290b54fab7637751a0a35f89aec708b8b25",
+      "candidate_rebuilt_from_patch": true,
+      "false_success": false,
+      "evaluation": {
+        "frozen_reproduction": {
+          "outcome": "PASS",
+          "reason": "exit_0",
+          "exit_code": 0
+        },
+        "public_regressions": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "independent": {
+          "passed": true,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "all_passed": true
+      },
+      "artifact_sha256": {
+        "repair.patch": "67b2c794aa90b408cae7f83f93a32290b54fab7637751a0a35f89aec708b8b25",
+        "reproduction.frozen.cjs": "7a20fe043ea94eab8d9e27588defc039b812a3d1e0b6246f2eefea6874073062",
+        "evaluator.log": "e7cccc96554a6728fada310c2ace567b124e4aa84f0d5d4195cace30b5853212",
+        "report.json": "7c0e97427f30dd172e5e861cdb7945d16f08bdc76c675cc49bc265649d0f84fd",
+        "attempt-summary.json": "99e14450254b5818046c9c8f792126baab4fe5125d1589d33af2895783095a6c"
+      },
+      "response_usage": [
+        {
+          "turn": 1,
+          "response_id": "resp_6ae92f6587a3326b96bf465d",
+          "input_tokens": 2811,
+          "output_tokens": 59,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 2,
+          "response_id": "resp_6ae92f688b5f0334122a48e2",
+          "input_tokens": 2945,
+          "output_tokens": 90,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 3,
+          "response_id": "resp_6ae92f6b9d1522baabc84988",
+          "input_tokens": 3350,
+          "output_tokens": 46,
+          "cached_tokens": 2932
+        },
+        {
+          "turn": 4,
+          "response_id": "resp_6ae92f74de18eb5f61d6443f",
+          "input_tokens": 5038,
+          "output_tokens": 684,
+          "cached_tokens": 2804
+        },
+        {
+          "turn": 5,
+          "response_id": "resp_6ae92f7cd4e2fd5c765b4829",
+          "input_tokens": 5774,
+          "output_tokens": 46,
+          "cached_tokens": 4980
+        },
+        {
+          "turn": 6,
+          "response_id": "resp_6ae92f80f688f7ba29d1432d",
+          "input_tokens": 6041,
+          "output_tokens": 112,
+          "cached_tokens": 3316
+        },
+        {
+          "turn": 7,
+          "response_id": "resp_6ae92f84e16786c4ab7c4965",
+          "input_tokens": 6383,
+          "output_tokens": 271,
+          "cached_tokens": 0
+        },
+        {
+          "turn": 8,
+          "response_id": "resp_6ae92f862f36afb9965748f6",
+          "input_tokens": 6733,
+          "output_tokens": 31,
+          "cached_tokens": 6260
+        },
+        {
+          "turn": 9,
+          "response_id": "resp_6ae92f8a0264a80cc0804a3b",
+          "input_tokens": 6863,
+          "output_tokens": 31,
+          "cached_tokens": 6644
+        },
+        {
+          "turn": 10,
+          "response_id": "resp_6ae92f925502e0e7b4f642a8",
+          "input_tokens": 6968,
+          "output_tokens": 232,
+          "cached_tokens": 6004
+        },
+        {
+          "turn": 11,
+          "response_id": "resp_6ae92f95ae90f45bb5e84ad5",
+          "input_tokens": 7233,
+          "output_tokens": 58,
+          "cached_tokens": 5748
+        },
+        {
+          "turn": 12,
+          "response_id": "resp_6ae92f9a7df5bec98d554ea1",
+          "input_tokens": 8933,
+          "output_tokens": 1576,
+          "cached_tokens": 6772
+        },
+        {
+          "turn": 13,
+          "response_id": "resp_6ae92fa1f0f73fdf12e74c4c",
+          "input_tokens": 10584,
+          "output_tokens": 328,
+          "cached_tokens": 6900
+        },
+        {
+          "turn": 14,
+          "response_id": "resp_6ae92fa67191985e3c5f4a96",
+          "input_tokens": 10984,
+          "output_tokens": 35,
+          "cached_tokens": 8820
+        },
+        {
+          "turn": 15,
+          "response_id": "resp_6ae92faa246d357eab2946f9",
+          "input_tokens": 11068,
+          "output_tokens": 104,
+          "cached_tokens": 10868
         }
       ]
     }

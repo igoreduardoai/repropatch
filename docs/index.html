@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReproPatch · judge in 2 minutes</title>
+<meta name="description" content="ReproPatch: bug video → frozen reproduction test → Meta Muse Wonder patch → independent verdict the model never sees. Recorded evidence of every real run; this page calls no model.">
+<link rel="icon" href="data:,"><link rel="stylesheet" href="vendor/asciinema-player/asciinema-player.css">
+<style>
+:root{--bg:#0b1220;--card:#0f172a;--line:#1e293b;--tx:#e2e8f0;--mut:#94a3b8;--g:#4ade80;--y:#facc15;--r:#f87171;--b:#60a5fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 Inter,Segoe UI,Arial,sans-serif}
+main{max-width:1150px;margin:0 auto;padding:24px}a{color:var(--b)}
+.banner{background:#422006;border:1px solid #a16207;color:#fde68a;border-radius:10px;padding:10px 14px;font-weight:600;font-size:14px}
+h1{font-size:36px;margin:18px 0 0}h2{font-size:22px;margin:30px 0 10px}.mut{color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}.k b{display:block;font-size:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:12px}
+ol li{margin:6px 0}code,pre{font:13px/1.45 Menlo,'DejaVu Sans Mono',monospace}pre{background:#020617;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.V{color:var(--g);font-weight:700}.R{color:var(--y);font-weight:700}.F{color:var(--r);font-weight:700}
+select,button{background:#1e293b;color:var(--tx);border:1px solid #334155;border-radius:8px;padding:8px 10px;font-size:14px}
+#player{margin-top:10px}footer{color:var(--mut);font-size:13px;margin:36px 0 10px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main>
+<div class="banner">RECORDED EVIDENCE. This page calls no model and runs no code: every number below is read from <code>docs/scoreboard.json</code>, which <code>scripts/build_scoreboard.py</code> builds from the run records in <code>docs/evidence/</code>.</div>
+<h1>ReproPatch</h1>
+<div class="mut">Show the bug, keep the proof. Bug video → frozen, hashed reproduction test → Meta <code>muse-wonder-1.0</code> patches the code through 11 sandboxed tools → an independent evaluator the model never sees decides the verdict.</div>
+<div class="grid" id="kpis"></div>
+
+<h2>Judge in 2 minutes</h2>
+<div class="card"><ol>
+<li><b>Watch a real run</b> (terminal recording of a live Meta run, below): pick one where the model said "Fixed" and the hidden check said no.</li>
+<li><b>Scan the scoreboard</b>: every counted run on every real bug, with the upstream fix, the bug video, and the verdict.</li>
+<li><b>Re-check it yourself</b> offline, standard library only, no keys, runs in under a second:
+<pre>git clone https://github.com/igoreduardoai/repropatch && cd repropatch && python3 scripts/verify_evidence.py</pre>
+It recomputes patch, frozen-test and bug-video SHA-256 hashes and re-tallies every run and every metered Meta call.</li>
+<li>Demo video (≤3 min): <a href="https://youtu.be/r4RFmpX63TI" id="vid">YouTube</a> · step-by-step replay of the first repair: <a href="replay/">replay/</a> · limits: <a href="https://github.com/igoreduardoai/repropatch/blob/main/VALIDATION.md">VALIDATION.md</a></li>
+</ol></div>
+
+<h2>Live runs, recorded</h2>
+<div class="card"><label class="mut" for="pick">Run: </label><select id="pick"></select>
+<div class="mut" style="font-size:13px;margin-top:6px">Real <code>muse-wonder-1.0</code> calls, metered as they happen, recorded with asciinema on the build box (2 Nov 2026). Playback speed 3×; idle gaps shortened.</div>
+<div id="player"></div></div>
+
+<h2>Scoreboard: every counted run</h2>
+<div class="card"><table id="board"><thead><tr><th>Bug (real VanJS bug)</th><th>Source</th><th>W0 (baseline)</th><th>W1 (protocol)</th></tr></thead><tbody></tbody></table>
+<p class="mut" style="font-size:14px" id="note"></p></div>
+
+<h2>Why executed checks, not a second opinion</h2>
+<div class="card">Meta's open-weight <b>Muse Spark Open</b> (via Baseten) reviewed the exported final patches <b>blind</b> (hidden checks and verdict withheld) and recommended "accept" for every one, including every incomplete patch. Only the executed hidden checks caught them. Details: <a href="https://github.com/igoreduardoai/repropatch/tree/main/docs/evidence/auditor-blind-2026-11-02">docs/evidence/auditor-blind-2026-11-02</a>. The column "blind review" in the table shows its call where it was asked.</div>
+
+<footer>MIT · <a href="https://github.com/igoreduardoai/repropatch">github.com/igoreduardoai/repropatch</a> · Meta Global AI Developer Hackathon (Cerebral Valley × Meta), Indie track · VanJS is MIT-licensed; bug videos were recorded by us on the pre-fix code. asciinema-player is Apache-2.0 (vendored in docs/vendor).</footer>
+</main>
+<script src="vendor/asciinema-player/asciinema-player.min.js"></script>
+<script>
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('scoreboard.json').then(r=>r.json()).then(d=>{
+  const k=[[`${d.bugs_verified} / ${d.bugs}`,'real bugs verified fixed'],[d.runs_counted,'counted real Meta runs'],[`${d.false_fixed_caught} / ${d.false_fixed_caught}`,'false "fixed" claims caught'],[d.wrong_verified,'VERIFIED with a failed check'],['$'+d.usd_counted.toFixed(2),'metered Meta usage']];
+  document.getElementById('kpis').innerHTML=k.map(([v,t])=>`<div class="k"><b>${v}</b><span class="mut">${t}</span></div>`).join('');
+  const cell=x=>{if(!x)return'<span class="mut">not run</span>';const c=x.status==='VERIFIED'?'V':(x.patch_sha256?'F':'R');
+    const lab=x.status==='VERIFIED'?'VERIFIED':(x.patch_sha256?'REJECTED · false "fixed" caught':'REJECTED · no candidate');
+    return `<span class="${c}">${lab}</span><br><span class="mut">${esc(x.why)}. ${x.model_calls} calls, $${x.usd.toFixed(3)}${x.blind_review?`, blind review: ${esc(x.blind_review)}`:''}</span>`+(x.cast?` · <a href="#" data-cast="${esc(x.cast)}">recording</a>`:'')};
+  document.querySelector('#board tbody').innerHTML=d.cases.map(c=>`<tr><td><b>${esc(c.title)}</b><br><span class="mut">${esc(c.case_id)} · ${esc(c.batch)}</span></td><td><a href="${esc(c.upstream)}">${esc(c.source)}</a>${c.bug_video?`<br><a href="${esc(c.bug_video)}">bug video</a>`:''}</td><td>${cell(c.runs.W0)}</td><td>${cell(c.runs.W1)}</td></tr>`).join('');
+  document.getElementById('note').innerHTML=`W0 verified ${d.w0_bugs_verified} bugs and W1 verified ${d.w1_bugs_verified}; on ${d.bugs} bugs that is not evidence that either method is better. ${d.no_candidate_runs} runs ended without a candidate and are stored as REJECTED, never as fixes. Independent checks are adapted by us from each upstream fix's tests (extension) or written by us (pilot); they were not run by the VanJS maintainers.`;
+  const casts=[];d.cases.forEach(c=>Object.entries(c.runs).forEach(([m,x])=>x.cast&&casts.push({v:x.cast,t:`${c.case_id} ${m}: ${x.status==='VERIFIED'?'VERIFIED':(x.patch_sha256?'said "Fixed", caught → REJECTED':'no candidate → REJECTED')}`,p:x.status!=='VERIFIED'&&x.patch_sha256?0:1})));
+  casts.sort((a,b)=>a.p-b.p);const sel=document.getElementById('pick');sel.innerHTML=casts.map(c=>`<option value="${esc(c.v)}">${esc(c.t)}</option>`).join('');
+  let pl;const load=u=>{document.getElementById('player').innerHTML='';pl=AsciinemaPlayer.create(u,document.getElementById('player'),{speed:3,idleTimeLimit:1.5,fit:'width',theme:'monokai',poster:'npt:0:20'})};
+  sel.onchange=()=>load(sel.value);if(casts.length)load(casts[0].v);
+  document.querySelectorAll('[data-cast]').forEach(a=>a.onclick=e=>{e.preventDefault();sel.value=a.dataset.cast;load(a.dataset.cast);document.getElementById('pick').scrollIntoView({behavior:'smooth'})});
+});
+</script></body></html>

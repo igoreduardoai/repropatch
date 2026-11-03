@@ -22,11 +22,11 @@ public release after review.
 
 ## extension-2026-11-02/ (real Meta runs, 2 Nov 2026)
 
-- `extension-results.json`: all 8 attempts (6 counted, 2 excluded with the reason), usage per response, hashes, evaluator results.
+- `extension-results.json`: all 22 attempts (20 counted on 10 bugs, 2 excluded with the reason), usage per response, hashes, evaluator results.
 - `spend-log-per-call.csv`: every Meta call (response ID, tokens, metered USD).
 - `case-provenance-extension.json`: upstream fix commits, manifest/snapshot/reference/evaluator tree hashes, video hashes.
 - `runs/<run_id>/`: patch, frozen reproduction test, evaluator log, report.
 - `bug-video-*.mp4`: the bug videos sent to Meta Files (recorded by us on the pre-fix code).
 - `case-tests/`: the demo page, public test and independent check of each case (independent checks adapted from upstream VanJS tests, MIT), plus the broken v1 public test kept for transparency.
-- `live-runs/`: asciinema recordings of all 8 live runs, and MP4 renders of two (idle gaps over 1.5 s compressed).
+- `live-runs/`: asciinema recordings of all 22 live runs, and MP4 renders of two (idle gaps over 1.5 s compressed).
 - `tooling/`: the scripts used to build the cases, record the videos, follow and export the runs.

@@ -2,12 +2,13 @@
 ### Show the bug. Keep the proof.
 
 > **At a glance**
-> - **Result:** 5 of 10 real VanJS bugs verified fixed by Meta `muse-wonder-1.0` in 20 real runs. 4 times the model said "fixed" with an incomplete patch; the independent check caught all 4 (REJECTED), so 0 wrong "fixed" verdicts. The rest ended without a candidate and stay REJECTED. USD 5.46 metered.
+> - **Judge in 2 minutes:** https://igoreduardoai.github.io/repropatch/ (scoreboard of every counted run, the bug videos, and in-browser playback of the live-run recordings; recorded evidence, no model calls)
+> - **Result:** 8 of 14 real VanJS bugs verified fixed by Meta `muse-wonder-1.0` in 28 counted real runs. 4 times the model said "fixed" with an incomplete patch; the independent check caught all 4 (REJECTED), so 0 wrong "fixed" verdicts. The other 11 non-verified runs ended without a candidate and stay REJECTED. USD 7.14 metered.
 > - **Why it matters:** a second model is not proof. Meta's open-weight Muse Spark Open, reviewing the same patches blind, accepted all 4 incomplete ones; only the executed hidden checks caught them ([docs/evidence/auditor-blind-2026-11-02/](docs/evidence/auditor-blind-2026-11-02/)).
-> - **Live runs, recorded (2 Nov 2026):** [docs/evidence/extension-2026-11-02/live-runs/](docs/evidence/extension-2026-11-02/live-runs/) (terminal recordings of all 14 runs on 2 Nov)
-> - **Demo video (≤3 min, narration: Igor's own voice, cloned with ElevenLabs):** https://youtu.be/r4RFmpX63TI
+> - **Live runs, recorded (2 Nov 2026):** [docs/evidence/extension-2026-11-02/live-runs/](docs/evidence/extension-2026-11-02/live-runs/) (terminal recordings of all 22 runs on 2 Nov)
+> - **Demo video (≤3 min, narration: Igor's own voice, cloned with ElevenLabs):** https://youtu.be/r4RFmpX63TI (recorded before the last two batches, so it shows 3 of 7 bugs; the numbers above are current)
 > - **Replay of a recorded run (no model calls):** [docs/replay/](docs/replay/) · hosted: https://igoreduardoai.github.io/repropatch/replay/
-> - **Check it offline in 1 command:** `python3 scripts/verify_evidence.py` (recomputes hashes and tallies from [docs/evidence/](docs/evidence/))
+> - **Check it offline in 1 command (standard library, no keys, under a second):** `python3 scripts/verify_evidence.py` (recomputes hashes and tallies from [docs/evidence/](docs/evidence/))
 > - **Validation and limits:** [VALIDATION.md](VALIDATION.md) · License: MIT
 
 ## Hackathon submission
@@ -28,15 +29,17 @@
   464 (kept as REJECTED, never counted as fixes). **No W1 superiority observed.**
   Metered Meta usage USD 3.332222 total, largest run USD 0.864264. Details:
   [VALIDATION.md](VALIDATION.md) and [docs/evidence/](docs/evidence/).
-- **Extension, 2 Nov 2026 (6 more real bugs, 12 counted runs):** cases built from real
-  VanJS fixes (upstream commits 915f0e2, 52a3696, c9f2dd4, c93a153, 5d97cff, 17d5ce5), bug
-  videos recorded on the pre-fix code, independent checks adapted from each fix's upstream
-  tests. Verified: vanX.compact (W0, W1), vanX.raw (W0, W1), function fields (W1). Caught:
-  4 runs where the model said "Fixed" and its own reproduction and the public tests passed,
-  but the independent check failed (SVG link W0 and W1, vanX.replace W1, function fields W0)
-  → REJECTED. No candidate: VanX list truncation (W0, W1), vanX.replace W0. USD 2.127002 for
-  the 12 counted runs; 2 more runs (USD 0.346883) are excluded because our own public test
-  was wrong, then fixed and re-run. Every Meta call: [spend-log-per-call.csv](docs/evidence/extension-2026-11-02/spend-log-per-call.csv).
+- **Extension, 2 Nov 2026 (10 more real bugs, 20 counted runs, 4 batches):** cases built from real
+  VanJS fixes (upstream commits 915f0e2, 52a3696, c9f2dd4, c93a153, 5d97cff, 17d5ce5, fc3ee4c, acb8ba8,
+  1c580f0, 84f30ae), bug videos recorded on the pre-fix code, independent checks adapted from each fix's
+  upstream tests. Verified: vanX.compact (W0, W1), vanX.raw (W0, W1), property bindings after removal
+  (W0, W1), function fields (W1), array length after pop (W1), reactive proxy crash (W0). Caught: 4 runs
+  where the model said "Fixed" and its own reproduction and the public tests passed, but the independent
+  check failed (SVG link W0 and W1, vanX.replace W1, function fields W0) → REJECTED. No candidate (25-turn
+  cap or ended): VanX list truncation (W0, W1), vanX.replace W0, vanX.replace shorter array (W0, W1),
+  array length after pop W0, reactive proxy crash W1. USD 3.812283 for the 20 counted runs; 2 more runs
+  (USD 0.346883) are excluded because our own public test was wrong, then fixed and re-run. Every Meta
+  call: [spend-log-per-call.csv](docs/evidence/extension-2026-11-02/spend-log-per-call.csv).
 - **Open-weight advisory auditor:** after the verdict is final, Meta's open-weight
   **Muse Spark Open** (`meta-models/muse-spark-open-1026`, served by Baseten's
   OpenAI-compatible API) reads the patch, the frozen test and the evaluator result
@@ -56,7 +59,7 @@
   ReproPatch decides on executed checks, not on a model's opinion.
   [docs/evidence/auditor-blind-2026-11-02/](docs/evidence/auditor-blind-2026-11-02/).
 - **Demo video:** https://youtu.be/r4RFmpX63TI · **Replay page:** [docs/replay/](docs/replay/) ([hosted](https://igoreduardoai.github.io/repropatch/replay/)) (replay of recorded run 909bd13d; calls no model)
-- **Runs locally** (Python, Node, Docker); there is no permanent hosted demo. 121
+- **Runs locally** (Python, Node, Docker); there is no hosted live inference: the [judge page](https://igoreduardoai.github.io/repropatch/) and the replay show recorded runs. 121
   pytest tests: 104 passed on the Mac before the auditor (with Docker); on 2 Nov all
   121 passed on a clean checkout on the Linux build box, including the 8 real-Docker tests. Hosted CI is
   blocked by a GitHub account restriction (see below). See [Run locally](#run-locally).

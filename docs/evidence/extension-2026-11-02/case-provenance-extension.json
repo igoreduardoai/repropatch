@@ -1,5 +1,29 @@
 [
   {
+    "case_id": "van-propgc-84f",
+    "title": "Function-valued property bindings keep recomputing after their element is removed",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "6506d6e2c374c72498632837626010c65dddc1a1",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "After the price badge is closed (removed from the page), further price ticks must not recompute its title: \"Badge title computations\" must stop increasing. Property bindings created from functions must be released when their element is removed, while explicit van.derive states keep working.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "84f30ae917107c9d4b4c38b9969a0d56aaac5ac8",
+    "editable_paths": [
+      "src/"
+    ],
+    "video_sha256": "0e2117c0d5a48567a05eb02e6af8940c665259e648d73edeae201f66bcd1209a",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "7a785b8f2f432b3790ee6a3146e1f4bd8b2d211e5961e8ec99218620083b6f1d",
+    "snapshot_tree_sha256": "71058e879c3b68a1143f69687fd5fec90dd0976ba99ee2a9cac971caa04b1b79",
+    "reference_tree_sha256": "9e4b33724a51ebf8004ac76d816baf02379a8530ec51372ae25b1b90a0d41e6c",
+    "evaluator_tree_sha256": "714aa7ee6178d4fb62e63f2653b1a77fce8f06cf7ae75d8b20595c4d722de86a",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
     "case_id": "van-setter-161",
     "title": "Rendering an SVG link fails after an HTML link with href exists",
     "repository_url": "https://github.com/vanjs-org/van",
@@ -96,6 +120,54 @@
     "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
   },
   {
+    "case_id": "vanx-poplen-fc3",
+    "title": "Reactive array length does not update after pop",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "6a10f189d10ff5e1748414181d9ac870489f8453",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "The release checklist shows \"Tasks left: 3\". Each click on \"Finish last task\" pops one task, so the counter must read 2, then 1, then 0. The length of a reactive array must propagate to derived states and the DOM after pop, push and index writes.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "fc3ee4c4bdab9f0a065ff6d897c53f2fa8f85eeb",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "978a21a92b04bd34de82d70e065ad7d481a42c5b58f507419a26636901d6dc85",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "a8b7b7d0e9c306ccb7f420d6b31874516b25e8b859dfc5cd3fb122ad67a8acfe",
+    "snapshot_tree_sha256": "c4fe965a32fd7356bf4c3a24f8dc4f85eb4ee6140e818f97117436b8ce1f4325",
+    "reference_tree_sha256": "9d3832d657374d043ba88c1b33d410e75eb4c4427019e411fb7c33252643ba50",
+    "evaluator_tree_sha256": "6fb41542c013dd83e62a2ce061e53af6335b9b49661ba3b1a2a658529f5490e6",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
+    "case_id": "vanx-proxyarg-1c5",
+    "title": "Reading length or array methods on a reactive object throws",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "ea231d9579c22f6f03c93ac2395680ed35ce03ff",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "The cart must show \"Items: 2 (apple, pear)\" and, after \"Add plum\", \"Items: 3 (apple, pear, plum)\" with no error. Non-state properties of reactive objects (array length, push, map, join) must be readable through the reactive proxy.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "1c580f0a6598ddcff62b005e742a7d5e9fe4eaf7",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "9d4cba29ae84edd563ac7bfdaa2562463fb5d45c19813dc547b73f920edab70a",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "7c1a971c146abbb256e2eb5629e8515a34edead1cad2e317864dce6c814b3481",
+    "snapshot_tree_sha256": "9587bbe484d2925a8bc53ac610dbc07ca6b49a264f9f3a3e2bf3623aba2777d2",
+    "reference_tree_sha256": "744644339dc75df5d331052cacba8babda8cae3729d7c8bf7c7faece42dfcb24",
+    "evaluator_tree_sha256": "7d257bd39187f96b231d2da6502247d19f06debcd90aa5c02682d0b9311d933b",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
     "case_id": "vanx-raw-356",
     "title": "vanX.raw breaks on reactive arrays and class instances",
     "repository_url": "https://github.com/vanjs-org/van",
@@ -139,6 +211,30 @@
     "snapshot_tree_sha256": "3905d084be7058802422d1866fe3156e76ed5c5640aa74a77875d99d3f45ac59",
     "reference_tree_sha256": "e0f5ef4378d7ca7728b7eb1ce6ded560b88c463e6200da98ce040c7f3113622b",
     "evaluator_tree_sha256": "d01f89d30c5ab3b385e51a31bbf8805e352c269da397cbd86a679994fca977ae",
+    "accepted": true,
+    "counted": true,
+    "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"
+  },
+  {
+    "case_id": "vanx-replacelen-acb",
+    "title": "vanX.replace with a shorter array leaves a stale length",
+    "repository_url": "https://github.com/vanjs-org/van",
+    "license": "MIT",
+    "base_commit": "96b00d9b79236ccdcd6ba3cb26ec421dce4d41cf",
+    "video_origin": "independently_recorded_reproduction",
+    "expected_behavior": "After \"Keep top 2\" the playlist must show \"Songs: 2\" and \"Saved as: [\"Blue\",\"Gold\"]\". After vanX.replace on a reactive array, the array length and JSON must match the new array, including when it shrinks or becomes empty.",
+    "protocol_version": "repropatch-pilot-v1",
+    "has_browser": true,
+    "upstream_fix_commit": "acb8ba839a28b53ef0e4cf9be0cf086df0a56ca6",
+    "editable_paths": [
+      "x/src/"
+    ],
+    "video_sha256": "74deb79ee5569cf2195a1b691578c97e6d21fffd9ab6ba7ec2c0bb93d43724ce",
+    "sandbox_image_id": "sha256:703d7317c1c74e36af26d09fd654eb5cbeea199892787d396a8e8bd4bed9a660",
+    "manifest_sha256": "69c35bd6c9f1e249d4b384757166624ade6e38be4efa2f33d9e7c9bb595bfc4b",
+    "snapshot_tree_sha256": "17423a54e4bb0845533c1ca59f95d4e8da54fbde185e0ebd43779408db314d60",
+    "reference_tree_sha256": "aeae8954d9150b886f808e6f6652736f57384c95bd273f67f36a6e6aac0b4c85",
+    "evaluator_tree_sha256": "f4bcf31555cec68b25cc64dc19bed7273ba50bc92f93de6ad1e7338ae04a90a9",
     "accepted": true,
     "counted": true,
     "independent_check_author": "Adapted by the ReproPatch operator from the upstream VanJS tests added in the fix commit (MIT); not run by maintainers"

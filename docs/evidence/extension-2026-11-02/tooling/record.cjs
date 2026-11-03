@@ -7,6 +7,10 @@ const steps={
  'vanx-replace-c93':async p=>{await p.waitForTimeout(2000);await p.click('#sort');await p.waitForTimeout(3500);},
  'vanx-funcfield-5d9':async p=>{await p.waitForTimeout(2500);await p.click('#formal');await p.waitForTimeout(3000);},
  'vanx-raw-356':async p=>{await p.waitForTimeout(4500);},
+ 'vanx-poplen-fc3':async p=>{await p.waitForTimeout(2000);await p.click('#done');await p.waitForTimeout(2000);await p.click('#done');await p.waitForTimeout(2500);},
+ 'vanx-replacelen-acb':async p=>{await p.waitForTimeout(2000);await p.click('#top2');await p.waitForTimeout(3000);},
+ 'vanx-proxyarg-1c5':async p=>{await p.waitForTimeout(2000);await p.click('#add');await p.waitForTimeout(3000);},
+ 'van-propgc-84f':async p=>{await p.waitForTimeout(1500);await p.click('#tick');await p.waitForTimeout(1200);await p.click('#close');await p.waitForTimeout(1200);for(let i=0;i<3;i++){await p.click('#tick');await p.waitForTimeout(900);}await p.waitForTimeout(1500);},
 };
 (async()=>{
  const server=require('child_process').spawn('node',['/opt/repropatch/serve.cjs'],{cwd:'/workspace/repo',stdio:'inherit'});

@@ -1,0 +1,48 @@
+{
+  "cost_usd": 0.231563,
+  "duration_ms": 132821,
+  "source": "live",
+  "mode": "live",
+  "model": "muse-wonder-1.0",
+  "method": "W1",
+  "case_id": "vanx-poplen-fc3",
+  "verified": true,
+  "operator_interventions": 0,
+  "started_at": "2026-11-03T00:34:06.497516+00:00",
+  "finished_at": "2026-11-03T00:36:19.318296+00:00",
+  "committed_usd": 0.231563,
+  "settled_usd": 0.231563,
+  "model_calls": 21,
+  "unknown_calls": 0,
+  "reproduced": true,
+  "agent_claim": "Fixed reactive array length propagation in x/src/van-x.js: the Proxy set trap now detects actual `length` changes on arrays and increments keysGenSym, so derives/DOM reading `.length` re-evaluate after pop (where delete previously triggered a premature recompute before length was set) as well as push and index writes. Frozen reproduction and public regressions pass.",
+  "candidate_sha256": "98a0c98ac37c446216b911e56ea9342a8a2536783ce5ddde3e80dceba51ca959",
+  "patch_sha256": "063b8a8d60fbaaa18cea1e53e95e2c3707725fa8f0af6b027f038508aa3a74b0",
+  "frozen_test_sha256": "58e0ba87a2591e1643712b2ad65d63d7d8bf689ffe304e3c905a5f8629cac3ee",
+  "workspace_test_modified": false,
+  "patch": "--- a/x/src/van-x.js\n+++ b/x/src/van-x.js\n@@ -32,7 +32,9 @@\n         let states = obj[statesSym]\n         if (name in states) return states[name].val = reactive(v), 1\n         let existingKey = name in obj\n+        let oldLength = Array.isArray(obj) && name === \"length\" ? obj.length : _undefined\n         if (!refSet(obj, name, v)) return\n+        if (oldLength !== _undefined && obj.length !== oldLength) ++obj[keysGenSym].val\n         existingKey ||\n           refSet(states, name, toState(v)) &&\n           (++obj[keysGenSym].val, onAdd(proxy, name, states[name]))\n",
+  "files_changed": [
+    "x/src/van-x.js"
+  ],
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "all_passed": true
+  },
+  "regressions": 0,
+  "limitation": "VERIFIED means the executed frozen/public/independent checks passed; not a proof of correctness.",
+  "false_success": false
+}

@@ -1,0 +1,48 @@
+{
+  "cost_usd": 0.207113,
+  "duration_ms": 80730,
+  "source": "live",
+  "mode": "live",
+  "model": "muse-wonder-1.0",
+  "method": "W0",
+  "case_id": "van-propgc-84f",
+  "verified": true,
+  "operator_interventions": 0,
+  "started_at": "2026-11-03T00:48:32.812831+00:00",
+  "finished_at": "2026-11-03T00:49:53.542979+00:00",
+  "committed_usd": 0.207113,
+  "settled_usd": 0.207113,
+  "model_calls": 15,
+  "unknown_calls": 0,
+  "reproduced": true,
+  "agent_claim": "Fixed function-valued property bindings leaking after element removal by passing the element DOM to derive() in tag() (derive(v, undefined, dom)), so its listener is pruned by keepConnected when disconnected, while explicit van.derive calls (no dom) remain always-connected. Reproduction test passes and public regression passes.",
+  "candidate_sha256": "9e4b33724a51ebf8004ac76d816baf02379a8530ec51372ae25b1b90a0d41e6c",
+  "patch_sha256": "67b2c794aa90b408cae7f83f93a32290b54fab7637751a0a35f89aec708b8b25",
+  "frozen_test_sha256": "7a20fe043ea94eab8d9e27588defc039b812a3d1e0b6246f2eefea6874073062",
+  "workspace_test_modified": false,
+  "patch": "--- a/src/van.js\n+++ b/src/van.js\n@@ -110,7 +110,7 @@\n       } :\n       propSetter ? propSetter.bind(dom) : dom.setAttribute.bind(dom, k)\n     let protoOfV = protoOf(v ?? 0)\n-    isEvent || protoOfV === funcProto && (v = derive(v), protoOfV = stateProto)\n+    isEvent || protoOfV === funcProto && (v = derive(v, _undefined, dom), protoOfV = stateProto)\n     protoOfV === stateProto ? bind(() => (setter(v.val, v._oldVal), dom)) : setter(v)\n   }\n   return add(dom, children)\n",
+  "files_changed": [
+    "src/van.js"
+  ],
+  "evaluation": {
+    "frozen_reproduction": {
+      "outcome": "PASS",
+      "reason": "exit_0",
+      "exit_code": 0
+    },
+    "public_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "independent": {
+      "passed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    "all_passed": true
+  },
+  "regressions": 0,
+  "limitation": "VERIFIED means the executed frozen/public/independent checks passed; not a proof of correctness.",
+  "false_success": false
+}

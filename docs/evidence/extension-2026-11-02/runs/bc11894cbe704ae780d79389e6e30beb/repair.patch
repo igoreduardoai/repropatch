@@ -1,0 +1,12 @@
+--- a/x/src/van-x.js
++++ b/x/src/van-x.js
+@@ -32,7 +32,9 @@
+         let states = obj[statesSym]
+         if (name in states) return states[name].val = reactive(v), 1
+         let existingKey = name in obj
++        let oldLength = Array.isArray(obj) && name === "length" ? obj.length : _undefined
+         if (!refSet(obj, name, v)) return
++        if (oldLength !== _undefined && obj.length !== oldLength) ++obj[keysGenSym].val
+         existingKey ||
+           refSet(states, name, toState(v)) &&
+           (++obj[keysGenSym].val, onAdd(proxy, name, states[name]))
